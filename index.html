@@ -1,0 +1,648 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Shinbyte | Building Software That Solves Real Problems</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;family=Geist:wght@400;600&amp;display=swap"
+        rel="stylesheet"
+        />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet"
+        />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet"
+        />
+        <style>
+        body {
+            background-color: #0a0a0c;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(18, 18, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 219, 231, 0.3);
+            box-shadow: 0 0 30px rgba(0, 219, 231, 0.05);
+        }
+        .glow-orb {
+            position: absolute;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+            border-radius: 50%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            "FILL" 0,
+            "wght" 400,
+            "GRAD" 0,
+            "opsz" 24;
+        }
+        </style>
+        <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "surface-tint": "#00dbe7",
+                "surface-container-lowest": "#0e0e10",
+                outline: "#849495",
+                "error-container": "#93000a",
+                "primary-fixed-dim": "#00dbe7",
+                "surface-variant": "#353437",
+                "secondary-fixed-dim": "#d1bcff",
+                "surface-dim": "#131315",
+                surface: "#131315",
+                "outline-variant": "#3a494b",
+                "on-background": "#e5e1e4",
+                "tertiary-container": "#d0daff",
+                "on-secondary-container": "#ddcdff",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313032",
+                "on-primary-container": "#006a71",
+                "on-secondary-fixed": "#23005b",
+                "on-tertiary-fixed": "#001849",
+                "secondary-fixed": "#e9ddff",
+                "surface-container-highest": "#353437",
+                "primary-fixed": "#74f5ff",
+                "primary-container": "#00f2ff",
+                tertiary: "#f8f7ff",
+                "on-surface": "#e5e1e4",
+                "on-tertiary": "#002b75",
+                "surface-bright": "#39393b",
+                "surface-container-high": "#2a2a2c",
+                error: "#ffb4ab",
+                "on-secondary-fixed-variant": "#5700c9",
+                "tertiary-fixed": "#dae1ff",
+                "secondary-container": "#7000ff",
+                secondary: "#d1bcff",
+                "on-primary-fixed": "#002022",
+                background: "#131315",
+                "surface-container-low": "#1c1b1d",
+                "surface-container": "#201f21",
+                primary: "#e1fdff",
+                "on-secondary": "#3c0090",
+                "on-primary": "#00363a",
+                "tertiary-fixed-dim": "#b3c5ff",
+                "on-tertiary-container": "#0056d9",
+                "inverse-primary": "#00696f",
+                "on-tertiary-fixed-variant": "#003fa4",
+                "inverse-surface": "#e5e1e4",
+                "on-surface-variant": "#b9cacb",
+                "on-primary-fixed-variant": "#004f54",
+                "on-error": "#690005",
+                },
+                borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+                },
+                spacing: {
+                "section-gap": "120px",
+                "margin-mobile": "24px",
+                gutter: "24px",
+                unit: "8px",
+                "margin-desktop": "64px",
+                "container-max": "1280px",
+                },
+                fontFamily: {
+                "headline-sm": ["Sora"],
+                code: ["JetBrains Mono"],
+                "headline-lg-mobile": ["Sora"],
+                "label-caps": ["JetBrains Mono"],
+                "body-md": ["Geist"],
+                "headline-md": ["Sora"],
+                display: ["Sora"],
+                "body-lg": ["Geist"],
+                "headline-lg": ["Sora"],
+                },
+                fontSize: {
+                "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+                code: ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                    "32px",
+                    { lineHeight: "1.2", fontWeight: "700" },
+                ],
+                "label-caps": [
+                    "12px",
+                    { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" },
+                ],
+                "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                display: [
+                    "64px",
+                    {
+                    lineHeight: "1.1",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "800",
+                    },
+                ],
+                "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "700" }],
+                },
+            },
+            },
+        };
+        </script>
+  </head>
+  <body class="font-body-md text-on-surface bg-background">
+    <!-- Glow Orbs -->
+    <div
+      class="glow-orb w-[600px] h-[600px] bg-primary-container -top-40 -left-40"
+    ></div>
+    <div
+      class="glow-orb w-[500px] h-[500px] bg-secondary-container bottom-0 -right-20 opacity-10"
+    ></div>
+    <!-- Navigation -->
+    <header
+      class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 h-20 shadow-[0_0_20px_rgba(0,219,231,0.05)]"
+    >
+      <nav
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
+      >
+        <div
+          class="font-display text-headline-sm font-bold tracking-tighter text-primary dark:text-primary-fixed-dim"
+        >
+          Shinbyte
+        </div>
+        <div class="hidden md:flex items-center gap-gutter">
+          <a
+            class=" font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 "
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+            href="products.html"
+            >Products</a
+          >
+          <a
+            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+            href="about.html"
+            >About</a
+          >
+          <a
+            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+            href="contact.html"
+            >Contact</a
+          >
+        </div>
+        <button
+          class="bg-primary-container text-on-primary-fixed px-6 py-2 rounded-lg font-label-caps text-label-caps hover:shadow-[0_0_15px_rgba(0,219,231,0.3)] transition-all duration-300 active:scale-95"
+        >
+          Resume
+        </button>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row items-center gap-16"
+      >
+        <div class="flex-1 space-y-unit-4">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-surface-tint/30 bg-surface-tint/5 text-surface-tint font-label-caps text-[10px] uppercase tracking-widest"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-tint opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-surface-tint"
+              ></span>
+            </span>
+            Indie Developer Ecosystem
+          </div>
+          <h1 class="font-display text-display text-primary leading-tight">
+            Building Software That
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary"
+              >Solves Real Problems.</span
+            >
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Solo indie developer creating practical apps and software products
+            designed to tackle everyday digital challenges with elegant code.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-unit-4">
+            <button
+              class="bg-gradient-to-r from-primary-container to-secondary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(0,219,231,0.2)] transition-all"
+            >
+              Explore Products
+            </button>
+            <button
+              class="border border-outline-variant/50 text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-lg hover:bg-white/5 transition-all"
+            >
+              View Projects
+            </button>
+          </div>
+        </div>
+        <div class="flex-1 relative">
+          <div
+            class="glass-card rounded-2xl overflow-hidden aspect-square flex items-center justify-center p-8"
+          >
+            <img
+              alt="Developer Workspace"
+              class="rounded-xl object-cover w-full h-full grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+              data-alt="A cinematic, high-contrast photograph of a developer's futuristic workspace in a dark room. Glowing cyan and violet code scrolls across a curved monitor while sleek mechanical keyboards and minimalist tech hardware sit on a matte black desk. The lighting is moody and atmospheric, with soft neon reflections bouncing off glass surfaces. The overall aesthetic is professional, modern, and deeply technological."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBih4IcoT_1RrIBikk7NYpT3qqLnLmUUgG9FbB7wT4CkhOxz7babyPJWPme3l_mwHn0YaUhxaZNrltgqGg_Xv8lUUtVBRpM1eN16GdPZ_olTiuyW7noEgbRfMFLCitlFku0fTXP0dHtQRKwYjU7-T9QNS_uIqh_bdb4XgzygZERmZzAQsDEgUVC9rMnAF7AKAASonYcKIHsVGF9XN9nnZH8lGSL30H5hkHYYfzZRLp1Ti_X55Uygl48bH8ifa_dKcbcU0DjZI3Kzzfz"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="bg-surface-container-lowest/50 py-section-gap">
+        <div
+          class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-24 items-center"
+        >
+          <div class="order-2 md:order-1 glass-card p-1 rounded-2xl">
+            <div class="bg-surface-dim rounded-xl p-8 space-y-6">
+              <div class="flex items-center gap-3">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <div class="text-[12px] font-code text-on-surface-variant/60">
+                  indie-builder.sh
+                </div>
+              </div>
+              <div class="font-code text-on-surface-variant space-y-2">
+                <p class="text-primary-fixed-dim">
+                  const <span class="text-secondary">developer</span> = {
+                </p>
+                <p class="pl-4">
+                  name: <span class="text-surface-tint">"Shinbyte"</span>,
+                </p>
+                <p class="pl-4">
+                  role:
+                  <span class="text-surface-tint">"Solo Indie Builder"</span>,
+                </p>
+                <p class="pl-4">
+                  specialization: [<span class="text-surface-tint"
+                    >"Android"</span
+                  >, <span class="text-surface-tint">"Full-Stack"</span>],
+                </p>
+                <p class="pl-4">
+                  mission:
+                  <span class="text-surface-tint"
+                    >"Practical Problem Solving"</span
+                  >
+                </p>
+                <p class="text-primary-fixed-dim">};</p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 space-y-6">
+            <h2 class="font-headline-lg text-headline-lg text-primary">
+              The Solo Builder Journey
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              I specialize in crafting Android applications and bespoke software
+              solutions that bridge the gap between complex technology and daily
+              utility. As an indie developer, I oversee every pixel and every
+              line of code, ensuring that the final product isn't just a tool,
+              but a solution.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant/80">
+              My philosophy is simple: identify a friction point in daily life
+              and build a digital lever to move it. No bloated features, just
+              focused functionality.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Featured Products -->
+      <section
+        class="max-w-container-max mx-auto px-margin-desktop py-section-gap"
+      >
+        <div class="flex justify-between items-end mb-16">
+          <div class="space-y-2">
+            <span
+              class="font-label-caps text-label-caps text-secondary uppercase"
+              >Product Portfolio</span
+            >
+            <h2 class="font-headline-lg text-headline-lg text-primary">
+              Featured Solutions
+            </h2>
+          </div>
+          <div
+            class="hidden md:block h-[1px] flex-1 bg-outline-variant/30 mx-12 mb-4"
+          ></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Product Card 1 -->
+          <div class="glass-card rounded-2xl p-8 group flex flex-col">
+            <div
+              class="w-14 h-14 rounded-xl bg-primary-container/10 border border-primary-container/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >task_alt</span
+              >
+            </div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-headline-sm text-headline-sm text-primary">
+                TaskFlow Pro
+              </h3>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-label-caps bg-green-500/10 text-green-400 border border-green-500/20"
+                >LIVE</span
+              >
+            </div>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow"
+            >
+              A minimalist Android task manager focusing on deep work and peak
+              cognitive performance without distractions.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >React Native</span
+              >
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >SQLite</span
+              >
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div class="glass-card rounded-2xl p-8 group flex flex-col">
+            <div
+              class="w-14 h-14 rounded-xl bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-secondary text-3xl"
+                >cloud_sync</span
+              >
+            </div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-headline-sm text-headline-sm text-primary">
+                CloudArch
+              </h3>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-label-caps bg-surface-tint/10 text-surface-tint border border-surface-tint/20"
+                >BETA</span
+              >
+            </div>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow"
+            >
+              Automated infrastructure provisioning tool for small-scale
+              projects, simplifying AWS deployments for solo devs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >Node.js</span
+              >
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >AWS</span
+              >
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div class="glass-card rounded-2xl p-8 group flex flex-col">
+            <div
+              class="w-14 h-14 rounded-xl bg-surface-tint/10 border border-surface-tint/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-surface-tint text-3xl"
+                >query_stats</span
+              >
+            </div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-headline-sm text-headline-sm text-primary">
+                StatPulse
+              </h3>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-label-caps bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
+                >WIP</span
+              >
+            </div>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow"
+            >
+              Privacy-first analytics dashboard that helps app creators monitor
+              usage without compromising user data.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >React</span
+              >
+              <span
+                class="font-code text-[11px] px-2 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant"
+                >API</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Vision Section -->
+      <section
+        class="max-w-container-max mx-auto px-margin-desktop py-section-gap relative"
+      >
+        <div
+          class="glass-card rounded-[32px] overflow-hidden p-16 text-center relative"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-container/5 to-transparent"
+          ></div>
+          <div class="relative z-10 max-w-2xl mx-auto space-y-8">
+            <h2 class="font-display text-headline-lg text-primary">
+              Simple Tools, Real Impact.
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              In an era of over-engineered software, my mission is to strip back
+              the noise. I build tools that serve people, not metrics. Every
+              project I undertake is driven by the desire to create something
+              genuinely useful, accessible, and high-performance.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
+              <div>
+                <div
+                  class="text-primary-container font-headline-md text-headline-md"
+                >
+                  10+
+                </div>
+                <div
+                  class="text-on-surface-variant text-[12px] font-label-caps"
+                >
+                  PROD APPS
+                </div>
+              </div>
+              <div>
+                <div
+                  class="text-primary-container font-headline-md text-headline-md"
+                >
+                  50k+
+                </div>
+                <div
+                  class="text-on-surface-variant text-[12px] font-label-caps"
+                >
+                  USERS
+                </div>
+              </div>
+              <div>
+                <div
+                  class="text-primary-container font-headline-md text-headline-md"
+                >
+                  99%
+                </div>
+                <div
+                  class="text-on-surface-variant text-[12px] font-label-caps"
+                >
+                  UPTIME
+                </div>
+              </div>
+              <div>
+                <div
+                  class="text-primary-container font-headline-md text-headline-md"
+                >
+                  4.8
+                </div>
+                <div
+                  class="text-on-surface-variant text-[12px] font-label-caps"
+                >
+                  RATING
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tech Stack -->
+      <section
+        class="max-w-container-max mx-auto px-margin-desktop py-section-gap"
+      >
+        <h3
+          class="font-label-caps text-label-caps text-center text-on-surface-variant/50 mb-12 uppercase tracking-widest"
+        >
+          Technologies &amp; Infrastructure
+        </h3>
+        <div
+          class="flex flex-wrap justify-center items-center gap-12 opacity-60 hover:opacity-100 transition-opacity"
+        >
+          <div class="flex flex-col items-center gap-2 group">
+            <div
+              class="p-4 glass-card rounded-full group-hover:border-primary-container/50"
+            >
+              <span class="material-symbols-outlined text-4xl text-on-surface"
+                >code</span
+              >
+            </div>
+            <span class="font-code text-[12px]">React Native</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <div
+              class="p-4 glass-card rounded-full group-hover:border-primary-container/50"
+            >
+              <span class="material-symbols-outlined text-4xl text-on-surface"
+                >javascript</span
+              >
+            </div>
+            <span class="font-code text-[12px]">Node.js</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <div
+              class="p-4 glass-card rounded-full group-hover:border-primary-container/50"
+            >
+              <span class="material-symbols-outlined text-4xl text-on-surface"
+                >cloud</span
+              >
+            </div>
+            <span class="font-code text-[12px]">AWS / Cloud</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <div
+              class="p-4 glass-card rounded-full group-hover:border-primary-container/50"
+            >
+              <span class="material-symbols-outlined text-4xl text-on-surface"
+                >terminal</span
+              >
+            </div>
+            <span class="font-code text-[12px]">APIs</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <div
+              class="p-4 glass-card rounded-full group-hover:border-primary-container/50"
+            >
+              <span class="material-symbols-outlined text-4xl text-on-surface"
+                >database</span
+              >
+            </div>
+            <span class="font-code text-[12px]">MongoDB</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="relative bg-surface-dim/80 backdrop-blur-2xl border-t border-primary-container/20 mt-section-gap overflow-hidden py-16"
+    >
+      <!-- Top Glow Effect -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50"
+      ></div>
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12"
+        >
+          <div
+            class="font-display text-headline-sm font-bold tracking-tighter text-primary"
+          >
+            Shinbyte
+          </div>
+          <div class="flex items-center gap-8">
+            <a
+              class="flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant/70 hover:text-primary-container transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[20px]">code</span>
+              GitHub
+            </a>
+            <a
+              class="flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant/70 hover:text-primary-container transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[20px]">link</span>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div class="font-body-md text-[13px] text-on-surface-variant/40">
+            © 2024 shinbyte.cloud. All rights reserved.
+          </div>
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-primary-container/30 text-[16px]"
+              >rocket_launch</span
+            >
+            <span
+              class="font-label-caps text-[10px] text-on-surface-variant/40 tracking-[0.3em] uppercase italic"
+              >Engineered for the deep space</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
