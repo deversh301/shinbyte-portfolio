@@ -1,580 +1,462 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<html class="dark" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Contact Shinbyte | Let’s Build Something Meaningful</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Geist:wght@400;500&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .glass-panel {
-        background: rgba(18, 18, 20, 0.8);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .glass-panel:hover {
-        border-color: rgba(0, 242, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 242, 255, 0.05);
-      }
-      .glow-orb {
-        filter: blur(100px);
-        z-index: -1;
-      }
-    </style>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "surface-container-high": "#2a2a2c",
-              error: "#ffb4ab",
-              outline: "#849495",
-              "on-background": "#e5e1e4",
-              "error-container": "#93000a",
-              "on-tertiary-fixed-variant": "#003fa4",
-              "on-secondary-container": "#ddcdff",
-              "primary-container": "#00f2ff",
-              background: "#131315",
-              "surface-container": "#201f21",
-              "inverse-surface": "#e5e1e4",
-              "tertiary-fixed": "#dae1ff",
-              "surface-variant": "#353437",
-              "on-primary-fixed": "#002022",
-              secondary: "#d1bcff",
-              "surface-container-low": "#1c1b1d",
-              "inverse-on-surface": "#313032",
-              "surface-bright": "#39393b",
-              "on-surface-variant": "#b9cacb",
-              "tertiary-container": "#d0daff",
-              "secondary-container": "#7000ff",
-              "inverse-primary": "#00696f",
-              tertiary: "#f8f7ff",
-              "secondary-fixed-dim": "#d1bcff",
-              "on-tertiary": "#002b75",
-              "on-tertiary-fixed": "#001849",
-              "primary-fixed": "#74f5ff",
-              "on-secondary-fixed-variant": "#5700c9",
-              "primary-fixed-dim": "#00dbe7",
-              "on-primary": "#00363a",
-              "on-error": "#690005",
-              "surface-dim": "#131315",
-              primary: "#e1fdff",
-              "secondary-fixed": "#e9ddff",
-              "on-primary-container": "#006a71",
-              "on-secondary": "#3c0090",
-              "surface-container-lowest": "#0e0e10",
-              "on-tertiary-container": "#0056d9",
-              surface: "#131315",
-              "on-surface": "#e5e1e4",
-              "on-error-container": "#ffdad6",
-              "surface-container-highest": "#353437",
-              "tertiary-fixed-dim": "#b3c5ff",
-              "outline-variant": "#3a494b",
-              "on-secondary-fixed": "#23005b",
-              "on-primary-fixed-variant": "#004f54",
-              "surface-tint": "#00dbe7",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "section-gap": "120px",
-              "container-max": "1280px",
-              "margin-mobile": "24px",
-              unit: "8px",
-              "margin-desktop": "64px",
-              gutter: "24px",
-            },
-            fontFamily: {
-              "headline-md": ["Sora"],
-              "body-md": ["Geist"],
-              "label-caps": ["JetBrains Mono"],
-              code: ["JetBrains Mono"],
-              "body-lg": ["Geist"],
-              "headline-sm": ["Sora"],
-              "headline-lg": ["Sora"],
-              display: ["Sora"],
-              "headline-lg-mobile": ["Sora"],
-            },
-            fontSize: {
-              "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
-              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-              "label-caps": [
-                "12px",
-                { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" },
-              ],
-              code: ["14px", { lineHeight: "1.5", fontWeight: "400" }],
-              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-              "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
-              "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "700" }],
-              display: [
-                "64px",
-                {
-                  lineHeight: "1.1",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "800",
-                },
-              ],
-              "headline-lg-mobile": [
-                "32px",
-                { lineHeight: "1.2", fontWeight: "700" },
-              ],
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body
-    class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container"
-  >
-      <!-- Navigation -->
-    <header
-      class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 h-20 shadow-[0_0_20px_rgba(0,219,231,0.05)]"
-    >
-      <nav
-        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
-      >
-        <div
-          class="font-display text-headline-sm font-bold tracking-tighter text-primary dark:text-primary-fixed-dim"
-        >
-          Shinbyte
-        </div>
-        <div class="hidden md:flex items-center gap-gutter">
-          <a
-            class=" font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-            href="index.html"
-            >Home</a
-          >
-          <a
-            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-            href="products.html"
-            >Products</a
-          >
-          <a
-            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-            href="about.html"
-            >About</a
-          >
-          <a
-            class=" font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1"
-            href="contact.html"
-            >Contact</a
-          >
-        </div>
-        <button
-          class="bg-primary-container text-on-primary-fixed px-6 py-2 rounded-lg font-label-caps text-label-caps hover:shadow-[0_0_15px_rgba(0,219,231,0.3)] transition-all duration-300 active:scale-95"
-        >
-          Resume
-        </button>
-      </nav>
-    </header>
+  <title>Shubham Yadav | Full Stack Developer</title>
 
-    <!-- Main Content Canvas -->
-    <main class="relative pt-32 pb-section-gap overflow-hidden">
-      <!-- Glow Orbs -->
-      <div
-        class="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-primary-container/5 rounded-full glow-orb"
-      ></div>
-      <div
-        class="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-secondary-container/5 rounded-full glow-orb"
-      ></div>
-      <!-- Hero Section -->
-      <section
-        class="max-w-container-max mx-auto px-margin-desktop text-center mb-section-gap"
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  />
+
+   <link rel="stylesheet" href="./src/css/style.css">
+
+</head>
+
+<body class="contact-page">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="#">Shinbyte</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
       >
-        <h1
-          class="font-display text-display text-primary mb-6 animate-in slide-in-from-bottom duration-700"
-        >
-          Let’s Build Something Meaningful
-        </h1>
-        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-          Have a project idea, collaboration opportunity, or just want to
-          connect? Feel free to reach out. I'm always open to discussing new
-          technical challenges and creative solutions.
-        </p>
-        <div
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-container/20 bg-primary-container/5 text-primary-fixed-dim font-label-caps"
-        >
-          <span
-            class="w-2 h-2 rounded-full bg-primary-container animate-pulse"
-          ></span>
-          Currently available for new projects
-        </div>
-      </section>
-      <!-- Bento Contact Info -->
-      <section
-        class="max-w-container-max mx-auto px-margin-desktop mb-section-gap"
-      >
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
-          <!-- Email Card -->
-          <div
-            class="glass-panel p-8 rounded-xl flex flex-col items-center text-center transition-all group"
-          >
-            <div
-              class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors"
-            >
-              <span
-                class="material-symbols-outlined text-primary-fixed"
-                data-icon="mail"
-                >mail</span
-              >
-            </div>
-            <span class="font-label-caps text-on-surface-variant mb-2"
-              >Email</span
-            >
-            <a
-              class="font-headline-sm text-on-surface hover:text-primary transition-colors text-[18px]"
-              href="mailto:shubhamyadav200995@gmail.com"
-              >shubhamyadav200995@gmail.com</a
-            >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO SECTION -->
+<section class="contact-hero section-gap position-relative overflow-hidden">
+
+  <div class="glow-orb orb-left"></div>
+  <div class="glow-orb orb-right"></div>
+
+  <div class="container text-center position-relative z-1">
+
+    <h1 class="hero-heading mb-4">
+      Let’s Build Something Meaningful
+    </h1>
+
+    <p class="hero-description mx-auto mb-5">
+      Have a project idea, collaboration opportunity, or just want to connect?
+      I'm always open to discussing technical challenges and creative solutions.
+    </p>
+
+    <div class="availability-badge">
+      <span class="pulse-dot"></span>
+      Currently available for new projects
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT INFO CARDS -->
+<section class="section-gap pt-0">
+
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="contact-card glass-panel h-100">
+
+          <div class="icon-box">
+            <span class="material-symbols-outlined">
+              mail
+            </span>
           </div>
-          <!-- GitHub Card -->
-          <div
-            class="glass-panel p-8 rounded-xl flex flex-col items-center text-center transition-all group"
-          >
-            <div
-              class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors"
-            >
-              <span
-                class="material-symbols-outlined text-primary-fixed"
-                data-icon="terminal"
-                >terminal</span
-              >
-            </div>
-            <span class="font-label-caps text-on-surface-variant mb-2"
-              >GitHub</span
-            >
-            <a
-              class="font-headline-sm text-on-surface hover:text-primary transition-colors"
-              href="#"
-              >@shinbyte</a
-            >
-          </div>
-          <!-- LinkedIn Card -->
-          <div
-            class="glass-panel p-8 rounded-xl flex flex-col items-center text-center transition-all group"
-          >
-            <div
-              class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors"
-            >
-              <span
-                class="material-symbols-outlined text-primary-fixed"
-                data-icon="share"
-                >share</span
-              >
-            </div>
-            <span class="font-label-caps text-on-surface-variant mb-2"
-              >LinkedIn</span
-            >
-            <a
-              class="font-headline-sm text-on-surface hover:text-primary transition-colors"
-              href="#"
-              >Connect</a
-            >
-          </div>
-          <!-- Location Card -->
-          <div
-            class="glass-panel p-8 rounded-xl flex flex-col items-center text-center transition-all group"
-          >
-            <div
-              class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors"
-            >
-              <span
-                class="material-symbols-outlined text-primary-fixed"
-                data-icon="location_on"
-                >location_on</span
-              >
-            </div>
-            <span class="font-label-caps text-on-surface-variant mb-2"
-              >Location</span
-            >
-            <span class="font-headline-sm text-on-surface">Noida, India</span>
-          </div>
-        </div>
-      </section>
-      <!-- Contact Form & Collaboration -->
-      <section
-        class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-start"
-      >
-        <!-- Left: Collaboration Details -->
-        <div class="space-y-12">
-          <div>
-            <h2 class="font-headline-lg text-on-surface mb-6">
-              Expertise &amp; Collaboration
-            </h2>
-            <p class="text-on-surface-variant font-body-lg mb-8">
-              I specialize in building scalable digital products that sit at the
-              intersection of performance and design. Whether you're a startup
-              or an established enterprise, I can help you ship faster.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            <div
-              class="glass-panel p-6 rounded-xl border-l-4 border-l-primary-container"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="material-symbols-outlined text-primary-fixed"
-                  data-icon="smartphone"
-                  >smartphone</span
-                >
-                <h3 class="font-headline-sm text-[18px]">Android Dev</h3>
-              </div>
-              <p class="text-on-surface-variant text-sm">
-                Native Kotlin &amp; Compose architectures for premium mobile
-                experiences.
-              </p>
-            </div>
-            <div
-              class="glass-panel p-6 rounded-xl border-l-4 border-l-secondary"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="material-symbols-outlined text-secondary"
-                  data-icon="layers"
-                  >layers</span
-                >
-                <h3 class="font-headline-sm text-[18px]">Full-Stack</h3>
-              </div>
-              <p class="text-on-surface-variant text-sm">
-                End-to-end web applications with modern cloud-native backends.
-              </p>
-            </div>
-            <div
-              class="glass-panel p-6 rounded-xl border-l-4 border-l-tertiary-fixed"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="material-symbols-outlined text-tertiary-fixed"
-                  data-icon="psychology"
-                  >psychology</span
-                >
-                <h3 class="font-headline-sm text-[18px]">AI Solutions</h3>
-              </div>
-              <p class="text-on-surface-variant text-sm">
-                Integrating LLMs and intelligent automation into existing
-                workflows.
-              </p>
-            </div>
-            <div
-              class="glass-panel p-6 rounded-xl border-l-4 border-l-on-secondary-container"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="material-symbols-outlined text-on-secondary-container"
-                  data-icon="bolt"
-                  >bolt</span
-                >
-                <h3 class="font-headline-sm text-[18px]">Freelance</h3>
-              </div>
-              <p class="text-on-surface-variant text-sm">
-                Flexible engagement models tailored to your project timeline.
-              </p>
-            </div>
-          </div>
-          <!-- Simple Map Placeholder -->
-          <div
-            class="rounded-2xl overflow-hidden glass-panel h-64 relative group"
-          >
-            <img
-              class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-80 transition-opacity"
-              data-alt="A stylized, cinematic dark-themed digital map of a modern metropolitan city at night. The map features glowing cyan lines representing transit routes and infrastructure, with soft neon accents. The aesthetic is clean, technical, and futuristic, aligning with a professional cloud console dashboard. Ambient blue light illuminates the grid patterns from below."
-              data-location="Noida, India"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBBf_VkrV4WNoZig9Z4S8ZHnXKJ2ri8te_JT_DjepDZ0DzWkxMT2THw8PSWweOT6U1-utR-NbeGWkySsa1jQpVjkGHZI2DAvgLV6zCaHmy9_Jv6kNzetIvh7lzLDwaI82y2XTJqCwcUs-EUeWh62xAnDzFqsInQNDMady76YaXDy4d0KGOV4TeeCz8QwT2JAhwJP829YW54mn_Dz_WywlK_IkJT1kdYufCPtSfgd_J6JLkAZo220WZ5--pasFpg-aH8-iKnPkDcz9l"
-            />
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div
-                class="px-4 py-2 bg-surface-container/90 backdrop-blur-md rounded-full border border-primary-container/30 text-primary-fixed-dim font-label-caps flex items-center gap-2"
-              >
-                <span
-                  class="material-symbols-outlined text-sm"
-                  data-icon="near_me"
-                  >near_me</span
-                >
-                Based in Noida, India
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Right: Contact Form -->
-        <div class="glass-panel p-10 rounded-2xl">
-          <h3 class="font-headline-md text-on-surface mb-8">Send a Message</h3>
-          <form class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="font-label-caps text-on-surface-variant ml-1"
-                  >Full Name</label
-                >
-                <input
-                  class="w-full bg-surface-container-lowest border-outline-variant/30 rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all placeholder:text-on-surface-variant/30"
-                  placeholder="John Doe"
-                  type="text"
-                />
-              </div>
-              <div class="space-y-2">
-                <label class="font-label-caps text-on-surface-variant ml-1"
-                  >Email Address</label
-                >
-                <input
-                  class="w-full bg-surface-container-lowest border-outline-variant/30 rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all placeholder:text-on-surface-variant/30"
-                  placeholder="john@example.com"
-                  type="email"
-                />
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label class="font-label-caps text-on-surface-variant ml-1"
-                >Subject</label
-              >
-              <input
-                class="w-full bg-surface-container-lowest border-outline-variant/30 rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all placeholder:text-on-surface-variant/30"
-                placeholder="Project Inquiry"
-                type="text"
-              />
-            </div>
-            <div class="space-y-2">
-              <label class="font-label-caps text-on-surface-variant ml-1"
-                >Message</label
-              >
-              <textarea
-                class="w-full bg-surface-container-lowest border-outline-variant/30 rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all placeholder:text-on-surface-variant/30 resize-none"
-                placeholder="Tell me about your vision..."
-                rows="6"
-              ></textarea>
-            </div>
-            <button
-              class="w-full py-4 bg-gradient-to-r from-primary-fixed-dim to-secondary-container text-on-primary-fixed font-headline-sm text-[16px] rounded-lg hover:shadow-[0_0_25px_rgba(0,242,255,0.2)] transition-all active:scale-98"
-              type="submit"
-            >
-              Initialize Connection
-            </button>
-            <p
-              class="text-center font-code text-xs text-on-surface-variant/50 pt-4 uppercase tracking-widest"
-            >
-              // SECURE END-TO-END ENCRYPTED TRANSMISSION
-            </p>
-          </form>
-        </div>
-      </section>
-      <!-- FAQ Section -->
-      <section
-        class="max-w-container-max mx-auto px-margin-desktop mt-section-gap"
-      >
-        <div class="text-center mb-12">
-          <span class="font-label-caps text-primary-fixed-dim tracking-[0.2em]"
-            >KNOWLEDGE BASE</span
-          >
-          <h2 class="font-headline-lg text-on-surface mt-4">
-            Frequently Asked Questions
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          <div class="glass-panel p-8 rounded-xl">
-            <h4 class="font-headline-sm text-[18px] text-primary mb-4">
-              Are you available for remote work?
-            </h4>
-            <p class="text-on-surface-variant text-sm">
-              Absolutely. I have years of experience working with distributed
-              teams across multiple time zones (PST, EST, GMT+5:30).
-            </p>
-          </div>
-          <div class="glass-panel p-8 rounded-xl">
-            <h4 class="font-headline-sm text-[18px] text-primary mb-4">
-              What is your core tech stack?
-            </h4>
-            <p class="text-on-surface-variant text-sm">
-              Primarily Kotlin/Android, Node.js/TypeScript, Tailwind CSS, and
-              cloud architectures via AWS and GCP.
-            </p>
-          </div>
-          <div class="glass-panel p-8 rounded-xl">
-            <h4 class="font-headline-sm text-[18px] text-primary mb-4">
-              What's your typical turnaround?
-            </h4>
-            <p class="text-on-surface-variant text-sm">
-              It depends on the complexity, but for standard MVPs, I usually
-              deliver a functional version within 4 to 6 weeks.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-     <!-- Footer -->
-    <footer
-      class="relative bg-surface-dim/80 backdrop-blur-2xl border-t border-primary-container/20 mt-section-gap overflow-hidden py-16"
-    >
-      <!-- Top Glow Effect -->
-      <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50"
-      ></div>
-      <div class="max-w-container-max mx-auto px-margin-desktop">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12"
-        >
-          <div
-            class="font-display text-headline-sm font-bold tracking-tighter text-primary"
-          >
-            Shinbyte
-          </div>
-          <div class="flex items-center gap-8">
-            <a
-              class="flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant/70 hover:text-primary-container transition-all"
-              href="#"
-            >
-              <span class="material-symbols-outlined text-[20px]">code</span>
-              GitHub
-            </a>
-            <a
-              class="flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant/70 hover:text-primary-container transition-all"
-              href="#"
-            >
-              <span class="material-symbols-outlined text-[20px]">link</span>
-              LinkedIn Profile
-            </a>
-          </div>
-        </div>
-        <div
-          class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6"
-        >
-          <div class="font-body-md text-[13px] text-on-surface-variant/40">
-            © 2024 shinbyte.cloud. All rights reserved.
-          </div>
-          <div class="flex items-center gap-2">
-            <span
-              class="material-symbols-outlined text-primary-container/30 text-[16px]"
-              >rocket_launch</span
-            >
-            <span
-              class="font-label-caps text-[10px] text-on-surface-variant/40 tracking-[0.3em] uppercase italic"
-              >Engineered for the deep space</span
-            >
-          </div>
+
+          <span class="card-label">
+            Email
+          </span>
+
+          <a href="#" class="card-link">
+            shubhamyadav200995@gmail.com
+          </a>
+
         </div>
       </div>
-    </footer>
-  </body>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="contact-card glass-panel h-100">
+
+          <div class="icon-box">
+            <span class="material-symbols-outlined">
+              terminal
+            </span>
+          </div>
+
+          <span class="card-label">
+            GitHub
+          </span>
+
+          <a href="#" class="card-link">
+            @shinbyte
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="contact-card glass-panel h-100">
+
+          <div class="icon-box">
+            <span class="material-symbols-outlined">
+              share
+            </span>
+          </div>
+
+          <span class="card-label">
+            LinkedIn
+          </span>
+
+          <a href="#" class="card-link">
+            Connect
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="contact-card glass-panel h-100">
+
+          <div class="icon-box">
+            <span class="material-symbols-outlined">
+              location_on
+            </span>
+          </div>
+
+          <span class="card-label">
+            Location
+          </span>
+
+          <span class="card-link">
+            Noida, India
+          </span>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FORM + EXPERTISE -->
+<section class="section-gap pt-0">
+
+  <div class="container">
+
+    <div class="row g-5 align-items-start">
+
+      <!-- LEFT -->
+      <div class="col-lg-6">
+
+        <h2 class="section-title mb-4">
+          Expertise & Collaboration
+        </h2>
+
+        <p class="section-description mb-5">
+          I specialize in building scalable digital products that sit at the
+          intersection of performance and design.
+        </p>
+
+        <div class="row g-4 mb-5">
+
+          <div class="col-md-6">
+            <div class="expertise-card glass-panel border-cyan">
+
+              <div class="d-flex align-items-center gap-3 mb-3">
+
+                <span class="material-symbols-outlined text-cyan">
+                  smartphone
+                </span>
+
+                <h4 class="expertise-title">
+                  Android Dev
+                </h4>
+
+              </div>
+
+              <p>
+                Native Kotlin & Compose architectures.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="expertise-card glass-panel border-purple">
+
+              <div class="d-flex align-items-center gap-3 mb-3">
+
+                <span class="material-symbols-outlined text-purple">
+                  layers
+                </span>
+
+                <h4 class="expertise-title">
+                  Full Stack
+                </h4>
+
+              </div>
+
+              <p>
+                Cloud-native modern applications.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="expertise-card glass-panel border-blue">
+
+              <div class="d-flex align-items-center gap-3 mb-3">
+
+                <span class="material-symbols-outlined text-info">
+                  psychology
+                </span>
+
+                <h4 class="expertise-title">
+                  AI Solutions
+                </h4>
+
+              </div>
+
+              <p>
+                LLM integrations and workflow automation.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="expertise-card glass-panel border-pink">
+
+              <div class="d-flex align-items-center gap-3 mb-3">
+
+                <span class="material-symbols-outlined text-warning">
+                  bolt
+                </span>
+
+                <h4 class="expertise-title">
+                  Freelance
+                </h4>
+
+              </div>
+
+              <p>
+                Flexible engagement models.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MAP -->
+        <div class="map-card glass-panel position-relative overflow-hidden">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map" width="600">
+
+          <div class="map-badge">
+            <span class="material-symbols-outlined">
+              near_me
+            </span>
+
+            Based in Noida, India
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-lg-6">
+
+        <div class="contact-form-wrapper glass-panel">
+
+          <h3 class="form-title mb-5">
+            Send a Message
+          </h3>
+
+          <div class="container">
+            <h1>FormSubmit Demo</h1>
+            <form target="_blank" action="https://formsubmit.co/shubhamyadav200995@gmail.com" method="POST">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                  </div>
+                  <div class="col">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+            </form>
+          </div>
+
+          <!-- <form>
+
+            <div class="row g-4 mb-4">
+
+              <div class="col-md-6">
+                <label class="form-label-custom">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control custom-input"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label-custom">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  class="form-control custom-input"
+                  placeholder="john@example.com"
+                />
+              </div>
+
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label-custom">
+                Subject
+              </label>
+
+              <input
+                type="text"
+                class="form-control custom-input"
+                placeholder="Project Inquiry"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label-custom">
+                Message
+              </label>
+
+              <textarea
+                rows="6"
+                class="form-control custom-input"
+                placeholder="Tell me about your vision..."
+              ></textarea>
+            </div>
+
+            <button class="btn submit-btn w-100">
+              Initialize Connection
+            </button>
+
+            <p class="secure-text">
+              // SECURE END-TO-END ENCRYPTED TRANSMISSION
+            </p>
+
+          </form> -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+ <!-- Footer -->
+  <footer>
+    <div class="container">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+
+        <h3 class="brand-logo">
+          Shinbyte
+        </h3>
+
+        <div class="d-flex gap-4">
+
+          <a href="#" class="footer-link">
+            GitHub
+          </a>
+
+          <a href="#" class="footer-link">
+            LinkedIn
+          </a>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+        <p class="mb-2 mb-md-0">
+          © 2024 shinbyte.cloud. All rights reserved.
+        </p>
+
+        <p class="mb-0">
+          Engineered for the deep space 🚀
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
