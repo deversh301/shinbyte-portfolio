@@ -1,0 +1,59 @@
+{
+  "product_name": "SubcontractorCompliance",
+  "meta_title": "Subcontractor Compliance | Shinbyte",
+  "meta_description": "Simplify subcontractor document collection, COI tracking, license expiry reminders, and compliance management with Shinbyte.",
+
+  "brand_name": "Shinbyte",
+  "brand_link": "/index.html",
+
+  "nav_toggle_label": "Toggle navigation",
+  "nav_home_text": "Home",
+  "nav_home_link": "/index.html",
+  "nav_products_text": "Products",
+  "nav_products_link": "/products.html",
+  "nav_contact_text": "Contact",
+  "nav_contact_link": "/contact.html",
+
+  "page_title": "Subcontractor Compliance",
+  "product_slug": "contractor-compliance",
+
+  "hero_title_before": "Simplify Your",
+  "hero_title_highlight": "Subcontractor Compliance",
+  "hero_description": "Stop chasing subcontractors for missing documents and expired certificates. Track insurance, W-9s, licenses, and compliance requirements in one organized workspace.",
+  "hero_cta_text": "Request a Demo",
+  "hero_note": "We're exploring early access with US construction businesses.",
+  "hero_image_src": "./src/Dashboard.png",
+  "hero_image_alt": "Shinbyte subcontractor compliance dashboard showing document tracking, contractor status, and expiry reminders",
+
+  "features_section_title": "Compliance Without the Busywork",
+  "features_section_description": "A simpler way to organize subcontractor documents, monitor deadlines, and see which requirements still need attention.",
+
+  "feature_1_icon": "folder_open",
+  "feature_1_title": "Document Tracking",
+  "feature_1_description": "Keep certificates of insurance, W-9 forms, licenses, and other subcontractor documents organized in one place.",
+
+  "feature_2_icon": "notifications_active",
+  "feature_2_title": "Expiry Reminders",
+  "feature_2_description": "Identify documents approaching expiration and help your team follow up before important deadlines are missed.",
+
+  "feature_3_icon": "fact_check",
+  "feature_3_title": "Compliance Overview",
+  "feature_3_description": "See which subcontractors are compliant, which documents are expiring, and where information is still missing.",
+
+  "feature_4_icon": "schedule_send",
+  "feature_4_title": "Less Manual Follow-Up",
+  "feature_4_description": "Reduce repetitive email chasing and make it easier to keep subcontractor records up to date.",
+
+  "cta_title_before": "Spend Less Time",
+  "cta_title_highlight": "Chasing Documents",
+  "cta_description": "We're exploring a simpler compliance workflow for small and mid-sized construction businesses. Tell us how you manage subcontractor documents and help shape a solution for your team.",
+  "cta_button_text": "Request a Demo",
+
+  "footer_brand_name": "Shinbyte",
+  "footer_github_text": "GitHub",
+  "footer_github_url": "https://github.com/deversh301",
+  "footer_linkedin_text": "LinkedIn",
+  "footer_linkedin_url": "https://www.linkedin.com/in/shubham-yadav-65a056140",
+  "footer_copyright": "© 2026 shinbyte.cloud. All rights reserved.",
+  "footer_tagline": "Crafted with passion in India 🚀"
+}
