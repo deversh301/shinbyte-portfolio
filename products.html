@@ -1,632 +1,776 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Products</title>
+<html class="scroll-smooth" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Products — Shinbyte</title>
+        <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link rel="icon" type="image/x-icon" href="./products/src/favicon.ico">
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+        <!-- Tailwind CSS v3 with Plugins -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              navy: '#0b132b',
+              dark: '#0f172a',
+            }
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'card': '0 10px 30px -4px rgba(15, 23, 42, 0.06)',
+            'float': '0 20px 40px -10px rgba(15, 23, 42, 0.12)',
+          }
+        }
+      }
+    }
+        </script>
+        <!-- BEGIN: Style Blocks -->
+        <style data-purpose="custom-typography">
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+        </style>
+        <!-- Product page specific styles -->
+        <style data-purpose="product-styles">
+  /* Prevent overflow issues */
+  body {
+    overflow-x: hidden;
+  }
 
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    .height70px {
+        height: 70px;
+    }
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Geist:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Material Icons -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    rel="stylesheet"
-  />
-   <link rel="icon" type="image/png" href="./src/images/favicon.png">
-  <link rel="stylesheet" href="./src/css/style.css" />
   
-</head>
-
-<body class="products-page">
-
-
-    <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-3">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Shinbyte</a>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Product card image containers */
+  .product-image-container {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background-color: #f9fafb;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+  }
+  
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    .btn, button, a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Ensure product cards have enough spacing */
+    .product-card {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Adjust grid for mobile */
+    .product-grid {
+      gap: 1.5rem;
+    }
+  }
+  
+  /* Tablet adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+      gap: 1.5rem;
+    }
+  }
+        </style>
+    </head>
+    <body class="bg-[#fcfdfd] text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+        <!-- BEGIN: MainHeader -->
+    <header
+      class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
+      data-purpose="site-header"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3">
+          <a
+            aria-label="Shinbyte Home"
+            class="flex items-center gap-2.5 group"
+            href="/index.html"
+          >
+            <img src="./products/src/logo.png" alt="Shinbyte Logo" class="height70px object-contain">
+          </a>
+          </div>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
-          <li class="nav-item">
-            <a class="nav-link " href="index.html">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="products.html">Products</a>
-          </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li> -->
-
-          <li class="nav-item">
-            <a class="nav-link " href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero-section">
-    <div class="container">
-
-      <div class="hero-badge">
-        <span>●</span>
-        SOFTWARE PRODUCTS
-      </div>
-
-      <h1 class="hero-title">
-        Software Applications
-      </h1>
-
-      <p class="hero-text">
-        Exploring practical software solutions to solve real-world business problems. Discover our product concepts, upcoming applications, and tools designed to make work simpler and more efficient.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- Products -->
-  <section class="pb-5">
-    <div class="container" id="productsContainer">
-
-      <div class="row g-4">
-
-        <!-- Card 1 -->
-        <div class="col-lg-6">
-          <div class="glass-card">
-
-            <div class="card-image">
-              <img src="./products/src/statemint1st.png">
-
-              <div class="status-badge live">
-                Beta Testing
-              </div>
-            </div>
-
-            <div class="card-body-custom">
-
-              <div class="d-flex align-items-center gap-3 mb-4">
-
-                <div class="icon-box">
-                  <span class="material-symbols-outlined">
-                    account_balance_wallet
-                  </span>
-                </div>
-
-                <div>
-                  <h3>Stetemint Tracker</h3>
-                  <p class="card-subtitle mb-0">
-                    Manage finances with ease.
-                  </p>
-                </div>
-
-              </div>
-
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="tech-badge">React Native</span>
-                <span class="tech-badge">NodeJs</span>
-                <span class="tech-badge">S3</span>
-              </div>
-
-              <button  onclick="window.location.href='products/statemint.html'" class="details-btn">
-                View Details →
-              </button>
-
-            </div>
+      
+       
+        <!-- Header Actions Right -->
+        <div class="flex items-center gap-3">
+           <!-- Desktop Navigation -->
+          <nav
+            aria-label="Main Navigation"
+            class="hidden md:flex items-center gap-8 ml-10"
+          >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/index.html"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/products.html"
+              >Products</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/contact.html"
+              >Contact</a
+            >
+          </nav>
+           <!-- Mobile Menu -->
+        <div
+          class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg p-4 hidden"
+          id="mobile-menu"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/index.html"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/products.html"
+              >Products</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/contact.html"
+              >Contact</a
+            >
           </div>
         </div>
-        <!-- Repeat More Cards -->
+          
+        </div>
+          <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+          id="mobile-menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span
+            class="w-5 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"
+            id="menu-line-1"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"
+            id="menu-line-2"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-slate-700 transition-all duration-300"
+            id="menu-line-3"
+          ></span>
+        </button>
+
+      </div>
+    </header>
+        <!-- END: MainHeader -->
+        <!-- BEGIN: MainContent -->
+        <main>
+            <!-- BEGIN: HeroSection -->
+            <section class="py-16 lg:py-24 bg-[#FAF8F5] border-b border-[#EAE6DF]" data-purpose="hero-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <!-- Kicker / Eyebrow Badge -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#EAE6DF] shadow-sm mb-6 mx-auto">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                            <span class="text-[11px] font-semibold tracking-wider text-slate-700 uppercase">INDUSTRY-FOCUSED PRODUCTS</span>
+                        </div>
+                        <!-- Headline -->
+                        <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-display font-extrabold text-slate-950 tracking-tight leading-[1.14] mb-6">
+                            Software built for the work you do
+                        </h1>
+                        <!-- Supporting Copy -->
+                        <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto font-normal">
+                            Each product is focused on solving real industry challenges with practical, easy-to-use software that delivers tangible ROI.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- END: HeroSection -->
+            <!-- BEGIN: ProductsSection -->
+            <section class="py-16 lg:py-24 bg-white" data-purpose="products-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- 3 Product Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 product-grid">
+                      <!-- Repeat More Cards -->
 
 <!-- Card : DeficiencySync | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/deficienciesync.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/deficienciesync.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">DeficiencySync | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Automate fire inspection repair proposals with DeficiencySync. Upload NFPA reports to extract deficiencies into visual, photo-backed estimates with pre-priced parts.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/deficienciesync.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>DeficiencySync | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Automate fire inspection repair proposals with DeficiencySync. Upload NFPA reports to extract deficiencies, generate visual estimates, and offer building managers one-click SMS/email alerts.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/deficienciesync.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
 
 
 <!-- Card : Prior Authorization Automation | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/priorauthorization.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/priorauthorization.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">Prior Authorization Automation | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Simplify insurance approvals for specialty clinics with centralized requests, clinical document organization, status tracking, and prioritized follow-ups. Reduce administrative delays and improve patient care.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/priorauthorization.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>Prior Authorization Automation | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Simplify insurance approvals for specialty clinics with centralized requests, clinical document organization, status tracking, and prioritized follow-ups. Reduce administrative delays and improve patient care with Shinbyte.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/priorauthorization.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
 
 
 <!-- Card : Cleaning Insight | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/cleaninginsight.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/cleaninginsight.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">Cleaning Insight | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Manage cleaning inspections, track cleanliness scores, capture photos of issues, assign corrective tasks, and generate client-ready reports with Shinbyte.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/cleaninginsight.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>Cleaning Insight | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Manage cleaning inspections, track cleanliness scores, capture photos of issues, and generate client-ready reports with Shinbyte.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/cleaninginsight.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
 
 
 <!-- Card : EPA Refrigerant Compliance | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/epa-refrigerant-compliance.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/epa-refrigerant-compliance.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">EPA Refrigerant Compliance | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Organize refrigerant service records, track equipment histories, calculate leak rates, and manage repair deadlines with Shinbyte.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/epa-refrigerant-compliance.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>EPA Refrigerant Compliance | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Organize refrigerant service records, track equipment histories, calculate leak rates, and manage repair deadlines with Shinbyte.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/epa-refrigerant-compliance.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
 
 
 <!-- Card : Bookkeeping Hub | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/bookkeepinghub.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/bookkeepinghub.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">Bookkeeping Hub | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Simplify monthly client document collection for bookkeepers. Request bank statements, receipts, invoices, and payroll reports with automated reminders and a centralized dashboard.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/bookkeepinghub.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>Bookkeeping Hub | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Simplify monthly client document collection for bookkeepers. Request bank statements, receipts, invoices, and payroll reports with automated reminders and a centralized dashboard.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/bookkeepinghub.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
 
 
 <!-- Card : Work Approval | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/workapproval.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
-
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>Work Approval | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Track extra work, collect customer approvals, and manage job documentation with Shinbyte. Stop losing money on unapproved work.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/workapproval.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
-
-
-<!-- Card 3: No Learn Tracker | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/nolearntracker.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
-
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>No Learn Tracker | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Track days you didn't learn new or work focusly with Shinbyte. Stay accountable and improve your productivity.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/nolearntracker.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/workapproval.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">Work Approval | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Track extra work, collect customer approvals, and manage job documentation with Shinbyte. Stop losing money on unapproved work.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/workapproval.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
 
-<!-- Card 3: MedSpa Docs | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/medspa-docs.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
 
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>MedSpa Docs | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Organize patient before-and-after treatment photos, manage digital consent forms, and track permissions for marketing or treatment records with Shinbyte.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/medspa-docs.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
-
-
-<!-- Card 3: CaptureField | Shinbyte -->
-<div class="col-lg-6">
-  <div class="glass-card">
-    <div class="card-image">
-      <img
-        src="./products/src/capturefield.png"
-        alt="Product image"
-        onerror="this.onerror=null; this.src='./products/src/extraticket.png';"
-      />
-      <div class="status-badge live">Early Access</div>
-    </div>
-
-    <div class="card-body-custom">
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="icon-box">
-          <span class="material-symbols-outlined">
-            assignment_turned_in
-          </span>
-        </div>
-
-        <div>
-          <h3>CaptureField | Shinbyte</h3>
-          <p class="card-subtitle mb-0">
-            Capture field photo evidence, AI voice notes, and instant GC signatures for extra work tickets with Shinbyte.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap gap-2 mb-4">
-        <span class="tech-badge">React / PWA</span>
-        <span class="tech-badge">Whisper AI</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">TypeScript</span>
-      </div>
-
-      <button
-        onclick="window.location.href='products/capturefield.html'"
-        class="details-btn"
-      >
-        View Details →
-      </button>
-    </div>
-  </div>
-</div>
+<!-- Card : No Learn Tracker | Shinbyte -->
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/nolearntracker.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">No Learn Tracker | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Track days you didn't learn new and didn't work focusly with Shinbyte. Stay accountable and improve your productivity.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/nolearntracker.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
 
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
+<!-- Card : MedSpa Docs | Shinbyte -->
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/medspa-docs.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">MedSpa Docs | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Organize patient before-and-after treatment photos, manage digital consent forms, and track permissions for marketing or treatment records with Shinbyte.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/medspa-docs.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-      <div class="cta-box">
-
-        <div class="cta-content">
-
-          <h2 class="display-5 fw-bold mb-4">
-            Ready to innovate?
-          </h2>
-
-          <p class="hero-text mb-5">
-            More practical software products are currently in development.
-            Let's work together to build the next essential tool.
-          </p>
-
-          <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
-
-            <button class="primary-btn"  onclick="window.location.href='contact.html'">
-              Contact / Collaborate
-            </button>
 
 
-          </div>
+<!-- Card : CaptureField | Shinbyte -->
+ <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group product-card">
+                            <div>
+                                <!-- Image Area -->
+                                <div class="product-image-container">
+                                    <img
+                                        src="./products/src/capturefield.png"
+                                        alt="DeficiencySync product screenshot"
+                                        class="product-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </div>
+                                <!-- Content Area -->
+                                <div class="p-6 pb-2">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-red-100 text-red-700">
+                                            FIRE PROTECTION
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-display font-bold text-slate-950 mb-2">CaptureField | Shinbyte</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Capture field photo evidence, AI voice notes, and instant GC signatures for extra work tickets with Shinbyte.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 transition group/link" href="products/capturefield.html">
+                                    <span class="">Go to details</span>
+                                    <svg
+                                        class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
 
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
-
-        <h3 class="brand-logo">
-          Shinbyte
-        </h3>
-
-        <div class="d-flex gap-4">
-
-          <a href="https://github.com/deversh301" class="footer-link">
-            GitHub
-          </a>
-
-          <a href="https://www.linkedin.com/in/shubham-yadav-65a056140" class="footer-link">
-            LinkedIn
-          </a>
-
-        </div>
-      </div>
-
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
-
-        <p class="mb-2 mb-md-0">
-          © 2024 shinbyte.cloud. All rights reserved.
-        </p>
-
-        <p class="mb-0">
-          Crafted with passion in India 🚀
-        </p>
-
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+ 
+                    </div>
+                </div>
+            </section>
+            <!-- END: ProductsSection -->
+            <!-- BEGIN: BottomCTABanner -->
+            <section class="pb-24 pt-4" data-purpose="bottom-cta-banner">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="relative rounded-3xl border border-slate-200/90 bg-gradient-to-r from-slate-50 via-white to-slate-100 overflow-hidden p-8 sm:p-12 lg:p-14 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
+                        <!-- Content Left -->
+                        <div class="relative z-10 max-w-xl">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 block">
+                                READY TO TRANSFORM YOUR WORKFLOW?
+                            </span>
+                            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-slate-950 tracking-tight leading-tight">
+                                Get started with one of our industry-focused solutions.
+                            </h2>
+                        </div>
+                        <!-- CTA Right -->
+                        <div class="relative z-10 shrink-0">
+                            <a class="inline-flex items-center gap-2.5 px-7 py-4 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full shadow-lg hover:shadow-slate-900/20 transition-all group" href="/contact.html">
+                                <span class="">Request a demo</span>
+                                <svg
+                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END: BottomCTABanner -->
+        </main>
+        <!-- END: MainContent -->
+        <!-- Mobile Navigation Script -->
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuLine1 = document.getElementById('menu-line-1');
+  const menuLine2 = document.getElementById('menu-line-2');
+  const menuLine3 = document.getElementById('menu-line-3');
+  
+  if (!menuToggle || !mobileMenu) return;
+  
+  menuToggle.addEventListener('click', function() {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    menuToggle.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+    mobileMenu.classList.toggle('hidden', isExpanded);
+    
+    // Animate hamburger to X
+    if (isExpanded) {
+      // Reset to hamburger
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    } else {
+      // Transform to X
+      menuLine1.style.transform = 'translateY(6px) rotate(45deg)';
+      menuLine1.style.marginBottom = '0';
+      menuLine2.style.opacity = '0';
+      menuLine3.style.transform = 'translateY(-6px) rotate(-45deg)';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!mobileMenu.classList.contains('hidden') && 
+        !mobileMenu.contains(event.target) && 
+        !menuToggle.contains(event.target)) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      mobileMenu.classList.add('hidden');
+      
+      // Reset hamburger icon
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+  
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      mobileMenu.classList.add('hidden');
+      
+      // Reset hamburger icon
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+});
+        </script>
+    </body>
 </html>

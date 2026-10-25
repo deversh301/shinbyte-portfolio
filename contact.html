@@ -1,447 +1,634 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html class="scroll-smooth" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Request a Demo — Shinbyte</title>
+        <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link rel="icon" type="image/x-icon" href="./products/src/favicon.ico">
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+        <!-- Tailwind CSS v3 with Plugins -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              navy: '#0b132b',
+              dark: '#0f172a',
+            }
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'card': '0 10px 30px -4px rgba(15, 23, 42, 0.06)',
+            'float': '0 20px 40px -10px rgba(15, 23, 42, 0.12)',
+          }
+        }
+      }
+    }
+        </script>
+        <!-- Contact page specific styles -->
+        <style data-purpose="contact-styles">
+  /* Prevent overflow issues */
+  body {
+    overflow-x: hidden;
+  }
 
-  <title>Contact</title>
+  .height70px {
+      height: 70px;
+    }
 
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Material Icons -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    rel="stylesheet"
-  />
-   <link rel="icon" type="image/png" href="./src/images/favicon.png">
-
-   <link rel="stylesheet" href="./src/css/style.css">
-
-</head>
-
-<body class="contact-page">
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-3">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Shinbyte</a>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
+  
+  /* Form field styling */
+  input, select, textarea {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    .btn, button, a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Adjust form layout for mobile */
+    .contact-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem;
+    }
+    
+    /* Adjust spacing for mobile */
+    .section-padding {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    /* Make form inputs/buttons fit viewport */
+    input, select, textarea {
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+  }
+  
+  /* Tablet adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .contact-grid {
+      gap: 2rem;
+    }
+  }
+  
+  /* Form validation styles */
+  .form-error {
+    border-color: #ef4444;
+  }
+  
+  .error-message {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
+  }
+  
+  .form-success {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+  }
+        </style>
+    </head>
+    <body class="bg-[#fcfdfd] text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+         <!-- BEGIN: MainHeader -->
+    <header
+      class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
+      data-purpose="site-header"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
-          <li class="nav-item">
-            <a class="nav-link " href="index.html">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="products.html">Products</a>
-          </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li> -->
-
-          <li class="nav-item">
-            <a class="nav-link active" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-<!-- HERO SECTION -->
-<section class="contact-hero section-gap position-relative overflow-hidden">
-
-  <div class="glow-orb orb-left"></div>
-  <div class="glow-orb orb-right"></div>
-
-  <div class="container text-center position-relative z-1">
-
-    <h1 class="hero-heading mb-4">
-      Ready to Transform Your Workflow?
-    </h1>
-
-    <p class="hero-description mx-auto mb-5">
-      Looking to streamline workflows, improve productivity, or scale your business?
-      Discover how our solutions can simplify your processes and help you achieve more.
-    </p>
-
-    <!-- <div class="availability-badge">
-      <span class="pulse-dot"></span>
-      Currently available for new projects
-    </div> -->
-
-  </div>
-
-</section>
-
-<!-- CONTACT INFO CARDS -->
-<!-- <section class="section-gap pt-0">
-
-  <div class="container">
-
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="contact-card glass-panel h-100">
-
-          <div class="icon-box">
-            <span class="material-symbols-outlined">
-              mail
-            </span>
-          </div>
-
-          <span class="card-label">
-            Email
-          </span>
-
-          <a href="#" class="card-link">
-            shubhamyadav200995@gmail.com
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3">
+          <a
+            aria-label="Shinbyte Home"
+            class="flex items-center gap-2.5 group"
+            href="/index.html"
+          >
+            
+            <img src="./products/src/logo.png" alt="Shinbyte Logo" class="height70px object-contain">
           </a>
-
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="contact-card glass-panel h-100">
-
-          <div class="icon-box">
-            <span class="material-symbols-outlined">
-              terminal
-            </span>
+        
           </div>
 
-          <span class="card-label">
-            GitHub
-          </span>
-
-          <a href="https://github.com/deversh301" class="card-link">
-            @deversh301
-          </a>
-
+      
+       
+        <!-- Header Actions Right -->
+        <div class="flex items-center gap-3">
+           <!-- Desktop Navigation -->
+          <nav
+            aria-label="Main Navigation"
+            class="hidden md:flex items-center gap-8 ml-10"
+          >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/index.html"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/products.html"
+              >Products</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 transition py-2"
+              href="/contact.html"
+              >Contact</a
+            >
+          </nav>
+           <!-- Mobile Menu -->
+        <div
+          class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg p-4 hidden"
+          id="mobile-menu"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/index.html"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/products.html"
+              >Products</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition py-3 px-4 rounded-lg"
+              href="/contact.html"
+              >Contact</a
+            >
+          </div>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="contact-card glass-panel h-100">
-
-          <div class="icon-box">
-            <span class="material-symbols-outlined">
-              share
-            </span>
-          </div>
-
-          <span class="card-label">
-            LinkedIn
-          </span>
-
-          <a href="https://www.linkedin.com/in/shubham-yadav-65a056140" class="card-link">
-            Connect
-          </a>
-
+          
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="contact-card glass-panel h-100">
-
-          <div class="icon-box">
-            <span class="material-symbols-outlined">
-              location_on
-            </span>
-          </div>
-
-          <span class="card-label">
-            Location
-          </span>
-
-          <span class="card-link">
-            Noida, India
-          </span>
-
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section> -->
-
-<!-- FORM + EXPERTISE -->
-<section class="section-gap pt-0">
-
-  <div class="container">
-
-    <div class="row g-5 align-items-start">
-
-      <!-- LEFT -->
-      <div class="col-lg-6">
-
-        <h2 class="section-title mb-4">
-          Expertise & Collaboration
-        </h2>
-
-        <p class="section-description mb-5">
-          I specialize in building scalable digital products that sit at the
-          intersection of performance and design.
-        </p>
-
-        <div class="row g-4 mb-5">
-
-          <div class="col-md-6">
-            <div class="expertise-card glass-panel border-cyan">
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-
-                <span class="material-symbols-outlined text-cyan">
-                  smartphone
-                </span>
-
-                <h4 class="expertise-title">
-                  Android Dev
-                </h4>
-
-              </div>
-
-              <p>
-                Native Kotlin & Compose architectures.
-              </p>
-
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="expertise-card glass-panel border-purple">
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-
-                <span class="material-symbols-outlined text-purple">
-                  layers
-                </span>
-
-                <h4 class="expertise-title">
-                  Full Stack
-                </h4>
-
-              </div>
-
-              <p>
-                Cloud-native modern applications.
-              </p>
-
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="expertise-card glass-panel border-blue">
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-
-                <span class="material-symbols-outlined text-info">
-                  psychology
-                </span>
-
-                <h4 class="expertise-title">
-                  AI Solutions
-                </h4>
-
-              </div>
-
-              <p>
-                LLM integrations and workflow automation.
-              </p>
-
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="expertise-card glass-panel border-pink">
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-
-                <span class="material-symbols-outlined text-warning">
-                  bolt
-                </span>
-
-                <h4 class="expertise-title">
-                  Freelance
-                </h4>
-
-              </div>
-
-              <p>
-                Flexible engagement models.
-              </p>
-
-            </div>
-          </div>
-
-        </div>
-
-        <!-- MAP -->
-        <div class="map-card glass-panel position-relative overflow-hidden">
-
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map" width="600">
-
-          <div class="map-badge">
-            <span class="material-symbols-outlined">
-              near_me
-            </span>
-
-            Based in Noida, India
-          </div>
-
-        </div>
+          <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+          id="mobile-menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span
+            class="w-5 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"
+            id="menu-line-1"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"
+            id="menu-line-2"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-slate-700 transition-all duration-300"
+            id="menu-line-3"
+          ></span>
+        </button>
 
       </div>
+    </header>
+        <!-- END: MainHeader -->
+        <!-- BEGIN: MainContent -->
+        <main>
+            <!-- 1. COMPACT BANNER SECTION -->
+            <section class="pt-12 pb-8 lg:pt-16 lg:pb-12 bg-[#FAF8F5] border-b border-[#EAE6DF] section-padding">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <!-- Compact banner/eyebrow -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#EAE6DF] shadow-sm mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                            <span class="text-[11px] font-semibold tracking-wider text-slate-700 uppercase">GET STARTED</span>
+                        </div>
+                        <!-- Main heading - compact and clear -->
+                        <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-slate-950 tracking-tight leading-[1.14] mb-4">
+                            Request a Demo
+                        </h1>
+                        <!-- Supporting sentence - concise -->
+                        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                            See how our industry-focused software can streamline your workflow in just 30 minutes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- 2. REQUEST A DEMO FORM (Primary Focus) -->
+            <section class="py-12 lg:py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 contact-grid">
+                        <!-- Left: Form Area (Primary, Larger) -->
+                        <div class="lg:col-span-8">
+                            <div class="max-w-2xl">
+                                <!-- Form Container -->
+                                <div class="bg-white border border-slate-200/90 rounded-2xl shadow-sm p-6 sm:p-8">
+                                    <h2 class="text-xl font-display font-bold text-slate-950 mb-2">Tell us about your needs</h2>
+                                    <p class="text-slate-600 text-sm mb-8">Fill out the form below and we'll schedule a personalized demo.</p>
+                                    <!-- Request a Demo Form with Web3Forms Integration -->
+                                    <form
+                                        id="demo-request-form"
+                                        class="space-y-6"
+                                        action="https://api.web3forms.com/submit"
+                                        method="POST"
+                                    >
+                                        <!-- Web3Forms Hidden Fields -->
+                                        <input type="hidden" name="access_key" value="49864275-2c42-445c-b3d3-c6787141f65c">
+                                        <input type="hidden" name="redirect" value="https://shinbyte.cloud/contact2.html">
+                                        <input type="hidden" name="subject" value="Shinbyte Demo Request">
+                                        <input type="hidden" name="from_name" value="Shinbyte Demo Form">
+                                        <!-- Full Name -->
+                                        <div>
+                                            <label for="full-name" class="block text-sm font-medium text-slate-700 mb-1.5">
+                                                Full Name
+                                                <span class="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="full-name"
+                                                name="name"
+                                                required
+                                                placeholder="John Smith"
+                                                autocomplete="name"
+                                                class="w-full px-4 py-3 text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                                aria-describedby="name-error"
+                                            >
+                                            <div id="name-error" class="error-message" role="alert">Please enter your full name</div>
+                                        </div>
+                                        <!-- Work Email -->
+                                        <div>
+                                            <label for="work-email" class="block text-sm font-medium text-slate-700 mb-1.5">
+                                                Work Email
+                                                <span class="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="email"
+                                                id="work-email"
+                                                name="email"
+                                                required
+                                                placeholder="john@company.com"
+                                                autocomplete="email"
+                                                class="w-full px-4 py-3 text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                                aria-describedby="email-error"
+                                            >
+                                            <div id="email-error" class="error-message" role="alert">Please enter a valid work email address</div>
+                                        </div>
+                                        <!-- Company Name -->
+                                        <div>
+                                            <label for="company-name" class="block text-sm font-medium text-slate-700 mb-1.5">
+                                                Company Name
+                                                <span class="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="company-name"
+                                                name="company"
+                                                required
+                                                placeholder="Company Inc."
+                                                class="w-full px-4 py-3 text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                                aria-describedby="company-error"
+                                            >
+                                            <div id="company-error" class="error-message" role="alert">Please enter your company name</div>
+                                        </div>
+                                        <!-- Product of Interest -->
+                                        <div>
+                                            <label for="product-interest" class="block text-sm font-medium text-slate-700 mb-1.5">
+                                                Product of Interest
+                                                <span class="text-red-500">*</span>
+                                            </label>
 
-      <!-- RIGHT -->
-      <div class="col-lg-6">
-
-        <div class="contact-form-wrapper glass-panel">
-
-          <h3 class="form-title mb-5">
-            Request a Demo
-          </h3>
-         <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="49864275-2c42-445c-b3d3-c6787141f65c">
-          <input type="hidden" name="redirect" value="https://shinbyte.cloud/contact.html">
-
-            <div class="row g-4 mb-4">
-
-              <div class="col-md-6">
-                <label class="form-label-custom">
-                  Full Name
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control custom-input"
-                  name="name" 
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label-custom">
-                  Email Address
-                </label>
-
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control custom-input"
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-
-            </div>
-
-            <!-- <div class="mb-4">
-              <label class="form-label-custom">
-                Subject
-              </label>
-
-              <input
-                type="text"
-                class="form-control custom-input"
-                name="subject"
-                placeholder="Project Inquiry"
-                required
-              />
-            </div> -->
-
-            <div class="mb-4">
-              <label class="form-label-custom">
-                Message
-              </label>
-
-              <textarea
-                rows="6"
-                name="message"
-                class="form-control custom-input"
-                placeholder="Tell me about your vision..."
-                required
-              ></textarea>
-            </div>
-
-            <button class="btn submit-btn w-100">
-              Initialize Connection
-            </button>
-          </form>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
- <!-- Footer -->
-  <footer>
-    <div class="container">
-
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
-
-        <h3 class="brand-logo">
-          Shinbyte
-        </h3>
-
-        <div class="d-flex gap-4">
-
-          <a href="https://github.com/deversh301" class="footer-link">
-            GitHub
-          </a>
-
-          <a href="https://www.linkedin.com/in/shubham-yadav-65a056140" class="footer-link">
-            LinkedIn
-          </a>
-
-        </div>
-      </div>
-
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
-
-        <p class="mb-2 mb-md-0">
-          © 2024 shinbyte.cloud. All rights reserved.
-        </p>
-
-        <p class="mb-0">
-          Crafted with passion in India 🚀
-        </p>
-
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+                                            <input
+                                                type="text"
+                                                id="product-interest"
+                                                name="product"
+                                                required
+                                                placeholder="Product of interest"
+                                                class="w-full px-4 py-3 text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                                aria-describedby="product-error"
+                                            >
+                                            <div id="product-error" class="error-message" role="alert">Please enter a product of interest</div>
+                                        </div>
+                                        <!-- Message (Optional) -->
+                                        <div>
+                                            <label for="message" class="block text-sm font-medium text-slate-700 mb-1.5">
+                                                Message / What would you like to see?
+                                                <span class="text-slate-500 text-xs">(Optional)</span>
+                                            </label>
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                rows="4"
+                                                placeholder="Tell us about your specific workflow challenges or questions..."
+                                                class="w-full px-4 py-3 text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                                            ></textarea>
+                                        </div>
+                                        <!-- Submit Button -->
+                                        <button type="submit" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-sm hover:shadow transition-all mt-2">
+                                            <span class="">Request a Demo</span>
+                                            <svg
+                                                class="w-4 h-4"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                ></path>
+                                            </svg>
+                                        </button>
+                                        <!-- Privacy/Reassurance Note -->
+                                        <div class="mt-6 pt-6 border-t border-slate-200">
+                                            <p class="text-xs text-slate-500 text-center">
+                                                We'll use your information only to schedule your demo and follow up. No spam, ever.
+                                            </p>
+                                        </div>
+                                    </form>
+                                    <!-- Success Message (Initially Hidden) - Now for real form submission -->
+                                    <div id="form-success" class="mt-6 p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 hidden">
+                                        <div class="flex items-start gap-3">
+                                            <svg
+                                                class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    d="M5 13l4 4L19 7"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2.5"
+                                                ></path>
+                                            </svg>
+                                            <div>
+                                                <h3 class="text-sm font-semibold text-emerald-900">Demo request submitted!</h3>
+                                                <p class="text-sm text-emerald-800 mt-1">Thank you for your interest. We'll contact you shortly to schedule your demo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right: Additional Contact Details (Secondary) -->
+                        <div class="lg:col-span-4">
+                            <div class="space-y-8">
+                                <!-- Contact Information Card -->
+                                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6">
+                                    <h3 class="text-lg font-display font-bold text-slate-950 mb-4">Other ways to connect</h3>
+                                    <p class="text-slate-600 text-sm mb-6">
+                                        Prefer to email us directly? We're happy to discuss product fit, workflows, and setup details.
+                                    </p>
+                                    <!-- Email Contact -->
+                                    <div class="space-y-4">
+                                        <div class="flex items-start gap-3">
+                                            <svg
+                                                class="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1.8"
+                                                ></path>
+                                            </svg>
+                                            <div>
+                                                <p class="text-sm font-medium text-slate-700">Email the team</p>
+                                                <p class="text-sm text-slate-600 mt-0.5">Found in existing project files:</p>
+                                                <a href="mailto:admin@shinbyte.cloud?subject=Shinbyte%20Demo%20Request" class="text-sm text-blue-600 hover:text-blue-800 font-mono block mt-1">
+                                                    admin@shinbyte.cloud
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Context Card -->
+                                <div class="bg-white border border-slate-200/90 rounded-2xl p-6">
+                                    <h3 class="text-lg font-display font-bold text-slate-950 mb-4">Our products</h3>
+                                    <p class="text-slate-600 text-sm mb-4">Quick reference for the demo form dropdown:</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                                            <span class="text-sm text-slate-700">DeficiencySync — Fire protection compliance</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                                            <span class="text-sm text-slate-700">Prior Authorization — Healthcare operations</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                                            <span class="text-sm text-slate-700">CleaningInsight — Facility management</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 3. QUICK FAQ / NEXT STEPS -->
+            <section class="py-12 lg:py-16 bg-slate-50 border-t border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl mx-auto">
+                        <h2 class="text-xl font-display font-bold text-slate-950 mb-6 text-center">What happens after you request a demo?</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Step 1 -->
+                            <div class="bg-white border border-slate-200/80 rounded-xl p-5 text-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-semibold mb-4 mx-auto">1</div>
+                                <h3 class="text-sm font-semibold text-slate-950 mb-2">Schedule Confirmation</h3>
+                                <p class="text-xs text-slate-600">We'll email you within 24 hours to confirm a convenient demo time.</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="bg-white border border-slate-200/80 rounded-xl p-5 text-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-semibold mb-4 mx-auto">2</div>
+                                <h3 class="text-sm font-semibold text-slate-950 mb-2">Personalized Walkthrough</h3>
+                                <p class="text-xs text-slate-600">30‑minute demo focused on your specific workflow challenges.</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="bg-white border border-slate-200/80 rounded-xl p-5 text-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-semibold mb-4 mx-auto">3</div>
+                                <h3 class="text-sm font-semibold text-slate-950 mb-2">Follow‑Up & Setup</h3>
+                                <p class="text-xs text-slate-600">We'll discuss next steps, pricing, and team onboarding if you're interested.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- END: MainContent -->
+        <!-- Mobile Navigation Script -->
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuLine1 = document.getElementById('menu-line-1');
+  const menuLine2 = document.getElementById('menu-line-2');
+  const menuLine3 = document.getElementById('menu-line-3');
+  
+  if (!menuToggle || !mobileMenu) return;
+  
+  menuToggle.addEventListener('click', function() {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    menuToggle.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+    mobileMenu.classList.toggle('hidden', isExpanded);
+    
+    // Animate hamburger to X
+    if (isExpanded) {
+      // Reset to hamburger
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    } else {
+      // Transform to X
+      menuLine1.style.transform = 'translateY(6px) rotate(45deg)';
+      menuLine1.style.marginBottom = '0';
+      menuLine2.style.opacity = '0';
+      menuLine3.style.transform = 'translateY(-6px) rotate(-45deg)';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!mobileMenu.classList.contains('hidden') && 
+        !mobileMenu.contains(event.target) && 
+        !menuToggle.contains(event.target)) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      mobileMenu.classList.add('hidden');
+      
+      // Reset hamburger icon
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+  
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      mobileMenu.classList.add('hidden');
+      
+      // Reset hamburger icon
+      menuLine1.style.transform = 'none';
+      menuLine1.style.marginBottom = '0.375rem';
+      menuLine2.style.opacity = '1';
+      menuLine3.style.transform = 'none';
+      menuLine3.style.marginBottom = '0';
+    }
+  });
+  
+  // Form Validation for Web3Forms Submission
+  const form = document.getElementById('demo-request-form');
+  const successMessage = document.getElementById('form-success');
+  
+  if (form) {
+    form.addEventListener('submit', function(event) {
+      // Clear previous errors
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+      });
+      document.querySelectorAll('.form-error').forEach(el => {
+        el.classList.remove('form-error');
+      });
+      
+      let isValid = true;
+      
+      // Validate Full Name
+      const nameInput = document.getElementById('full-name');
+      const nameError = document.getElementById('name-error');
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add('form-error');
+        nameError.style.display = 'block';
+        isValid = false;
+        event.preventDefault(); // Prevent form submission
+      }
+      
+      // Validate Work Email
+      const emailInput = document.getElementById('work-email');
+      const emailError = document.getElementById('email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
+        emailInput.classList.add('form-error');
+        emailError.style.display = 'block';
+        isValid = false;
+        event.preventDefault(); // Prevent form submission
+      }
+      
+      // Validate Company Name
+      const companyInput = document.getElementById('company-name');
+      const companyError = document.getElementById('company-error');
+      if (!companyInput.value.trim()) {
+        companyInput.classList.add('form-error');
+        companyError.style.display = 'block';
+        isValid = false;
+        event.preventDefault(); // Prevent form submission
+      }
+      
+      // Validate Product of Interest
+      const productInput = document.getElementById('product-interest');
+      const productError = document.getElementById('product-error');
+      if (!productInput.value) {
+        productInput.classList.add('form-error');
+        productError.style.display = 'block';
+        isValid = false;
+        event.preventDefault(); // Prevent form submission
+      }
+      
+      // If form is valid, it will submit to Web3Forms
+      // The success/redirect will be handled by Web3Forms
+      if (isValid) {
+        // Optionally show a "submitting" state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Submitting...';
+        submitBtn.disabled = true;
+        
+        // Reset button after 3 seconds (in case submission fails)
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+    });
+    
+    // Listen for successful form submission via URL parameter
+    // Web3Forms redirects back to the page with success parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success') === 'true') {
+      successMessage.classList.remove('hidden');
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Hide success message after 10 seconds
+      setTimeout(() => {
+        successMessage.classList.add('hidden');
+      }, 10000);
+    }
+  }
+});
+        </script>
+    </body>
 </html>
