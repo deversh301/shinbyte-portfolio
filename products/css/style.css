@@ -1,0 +1,465 @@
+/* Main CSS file for newlanding.html */
+/* Extracted from inline styles in newlanding.html */
+
+/* Global box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  background-color: #FCFDFD;
+  color: #020617;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1;
+  border-radius: 9999px;
+}
+
+/* Showcase container */
+.showcase {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Navigation styles */
+.slider-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.feature-buttons {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 50px;
+  overflow-x: auto;
+}
+
+
+
+.arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Swiper slider styles - improved for smoother transitions */
+.swiper {
+  width: 100%;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+  overflow: hidden;
+  position: relative;
+  /* GPU acceleration for smoother animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent color flashing during transitions */
+.swiper.swiper-transitioning .swiper-slide {
+  pointer-events: none;
+}
+
+.swiper.swiper-transitioning .swiper-slide:hover {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.swiper-slide {
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide.swiper-slide-active {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  /* Prevent image flashing */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+}
+
+/* Improved swiper fade effect */
+.swiper-fade .swiper-slide {
+  pointer-events: none;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swiper-fade .swiper-slide .swiper-slide {
+  pointer-events: none;
+}
+
+.swiper-fade .swiper-slide-active,
+.swiper-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+/* Pagination */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #e2e8f0;
+  opacity: 0.7;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 3px !important;
+}
+ 
+.swiper-pagination-bullet-active {
+  background: #2563eb !important;
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Progress indicator for active tab */
+.feature-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-tab .progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #2563eb;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(1);
+  z-index: 2;
+  border-radius: 0 0 9999px 9999px;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Animation for progress bar */
+.feature-tab.active-tab .progress-bar.progress-animating {
+  animation: progressDrain 3500ms linear forwards;
+}
+
+.feature-tab:not(.active-tab) .progress-bar {
+  display: none;
+}
+
+@keyframes progressDrain {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* When swiper is paused on hover, pause the progress animation */
+.swiper-autoplay-paused .feature-tab.active-tab .progress-bar.progress-animating {
+  animation-play-state: paused !important;
+}
+
+/* Responsive adjustments for progress bar */
+@media(max-width:600px) {
+  .feature-tab .progress-bar {
+    height: 1.5px;
+  }
+}
+
+/* Fix feature button transitions to prevent color flashing */
+.feature-btn {
+  border: none;
+  background: transparent;
+  padding: 11px 17px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-color, color, transform;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-btn:hover:not(.active) {
+  color: #1f2937;
+  background-color: #f8fafc;
+}
+
+.feature-btn.active {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.feature-btn.active:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Prevent hover color conflicts during swiper transitions */
+.swiper-transitioning .feature-btn:hover {
+  background: transparent !important;
+  color: #64748b !important;
+  transform: none !important;
+}
+
+/* Ensure swiper container transitions smoothly */
+.swiper.mySwiper {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform, opacity;
+}
+
+/* Responsive styles for swiper */
+@media(max-width:600px) {
+  .slider-navigation {
+    gap: 5px;
+  }
+
+  .feature-btn {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .arrow {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* Mobile swiper adjustments */
+  .swiper {
+    border-radius: 12px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .swiper-pagination-bullet-active {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+/* Additional body styling from data-purpose="custom-styling" */
+body {
+  background-color: #FAF6EE;
+  color: #1F2937;
+}
+
+/* Hand-drawn style decorative sketchy illustrations border */
+.sketch-border {
+  stroke-dasharray: 4, 3;
+}
+
+/* Scrollbar styling for dashboard previews */
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #D1D5DB;
+  border-radius: 9999px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.height70px {
+  height: 70px;
+}
+
+/* Floating chat styles */
+.sb-floating-chat {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(680px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px;
+  border-radius: 50px;
+  background: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 30px rgba(15,23,42,0.16);
+}
+
+.sb-chat-form {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.96);
+  border-radius: 30px;
+  padding: 0 5px 0 18px;
+}
+
+input#sbChatInput {
+  outline: none;
+  box-shadow: none;
+}
+
+.sb-chat-form input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  color: #0F172A;
+}
+
+.sb-chat-form input::placeholder {
+  color: #94A3B8;
+}
+
+.sb-send-btn {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #EFF6FF;
+  color: #2563EB;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.sb-send-btn:hover {
+  background: #2563EB;
+  color: white;
+}
+
+.sb-send-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sb-demo-btn {
+  height: 44px;
+  padding: 0 17px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #2563EB;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .2s ease;
+}
+
+.sb-demo-btn:hover {
+  background: #1D4ED8;
+}
+
+.sb-demo-btn span {
+  font-size: 16px;
+}
+
+/* Mobile responsive for floating chat */
+@media (max-width: 480px) {
+  .sb-floating-chat {
+    bottom: 12px;
+    width: calc(100% - 20px);
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .sb-chat-form {
+    height: 42px;
+    padding-left: 12px;
+  }
+
+  .sb-chat-form input {
+    font-size: 11px;
+  }
+
+  .sb-send-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sb-demo-btn {
+    height: 40px;
+    padding: 0 11px;
+    font-size: 11px;
+  }
+}

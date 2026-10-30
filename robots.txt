@@ -4,3 +4,6 @@ Disallow: /private/
 Disallow: /test/
 
 Sitemap: https://shinbyte.cloud/sitemap.xml
+
+
+https://script.google.com/macros/s/AKfycbzA15bBlbqrkb1t-i3chDPKO_0ey0Z8qEEEtdJSwu10OqkqnyGW4IJpPj0OPw5vscwn/exec

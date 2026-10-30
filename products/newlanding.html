@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html class="scroll-smooth antialiased" lang="en">
     <head>
+         <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T8SP3EW1YH"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-T8SP3EW1YH");
+    </script>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>UdderGuard by Shinbyte | Next-Gen Dairy Herd Health &amp; Parlour Intelligence</title>
@@ -78,312 +92,29 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     }
         </script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-        <style>
-* {
-  box-sizing: border-box;
-}
-
-/* body {
-  font-family: Arial, sans-serif;
-  background: #f8fafc;
-  padding: 40px 15px;
-} */
-
-.showcase {
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* Navigation */
-
-.slider-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.feature-buttons {
-  display: flex;
-  gap: 5px;
-  padding: 5px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 50px;
-  overflow-x: auto;
-}
-
-.feature-btn {
-  border: none;
-  background: transparent;
-  padding: 11px 17px;
-  border-radius: 30px;
-  cursor: pointer;
-  color: #64748b;
-  font-size: 13px;
-  white-space: nowrap;
-  transition: .3s;
-}
-
-.feature-btn.active {
-  background: #2563eb;
-  color: white;
-}
-
-.arrow {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: white;
-  cursor: pointer;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-/* Slider */
-
-.swiper {
-  width: 100%;
-  border-radius: 18px;
-  background: white;
-  box-shadow: 0 15px 40px rgba(0,0,0,.08);
-  overflow: hidden;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Pagination */
-
-.swiper-pagination {
-  position: relative !important;
-  margin-top: 20px;
-}
-
-.swiper-pagination-bullet-active {
-  background: #2563eb !important;
-}
-
-@media(max-width:600px) {
-  .slider-navigation {
-    gap: 5px;
-  }
-
-  .feature-btn {
-    padding: 9px 12px;
-    font-size: 11px;
-  }
-
-  .arrow {
-    width: 32px;
-    height: 32px;
-  }
-}
-        </style>
-        <style>
-    body {
-      background-color: #FCFDFD;
-      color: #020617;
-      font-family: 'Inter', -apple-system, sans-serif;
-    }
-    h1, h2, h3, h4, h5, h6, .font-heading {
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    }
-    .bg-grid-pattern {
-      background-size: 32px 32px;
-      background-image: 
-        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
-    }
-    .custom-scroll::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background-color: #CBD5E1;
-      border-radius: 9999px;
-    }
-        </style>
-        <style data-purpose="custom-styling">
-    body {
-      background-color: #FAF6EE;
-      color: #1F2937;
-    }
-    /* Hand-drawn style decorative sketchy illustrations border */
-    .sketch-border {
-      stroke-dasharray: 4, 3;
-    }
-    /* Scrollbar styling for dashboard previews */
-    .custom-scroll::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background-color: #D1D5DB;
-      border-radius: 9999px;
-    }
-    .custom-scroll::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-     /* Ensure images don't overflow */
-      img {
-        max-width: 100%;
-        height: auto;
+        <link rel="stylesheet" href="css/style.css">
+          <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "{product_name}",
+        "url": "https://shinbyte.cloud/products/{product_name}.html",
+        "description": "{hero_description}",
+        "image": "https://shinbyte.cloud/products/src/{product_name}.png",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/OnlineOnly"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Shinbyte",
+          "url": "https://shinbyte.cloud/"
+        }
       }
-
-      .height70px {
-        height: 70px;
-      }
-        </style>
-        <style>
-.sb-floating-chat {
-  position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-
-  width: min(680px, calc(100% - 32px));
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  padding: 8px;
-  border-radius: 50px;
-
-  background: transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 8px 30px rgba(15,23,42,0.16);
-}
-
-.sb-chat-form {
-  flex: 1;
-  min-width: 0;
-  height: 46px;
-
-  display: flex;
-  align-items: center;
-
-  background: rgba(255,255,255,0.96);
-  border-radius: 30px;
-  padding: 0 5px 0 18px;
-}
-
-input#sbChatInput {
-    outline: none;
-    box-shadow: none;
-}
-
-.sb-chat-form input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-
-  font-family: Inter, sans-serif;
-  font-size: 13px;
-  color: #0F172A;
-}
-
-.sb-chat-form input::placeholder {
-  color: #94A3B8;
-}
-
-.sb-send-btn {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border: none;
-  border-radius: 50%;
-
-  background: #EFF6FF;
-  color: #2563EB;
-
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.sb-send-btn:hover {
-  background: #2563EB;
-  color: white;
-}
-
-.sb-send-btn svg {
-  width: 17px;
-  height: 17px;
-}
-
-.sb-demo-btn {
-  height: 44px;
-  padding: 0 17px;
-  border-radius: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  background: #2563EB;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap;
-
-  font-family: Inter, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-
-  transition: .2s ease;
-}
-
-.sb-demo-btn:hover {
-  background: #1D4ED8;
-}
-
-.sb-demo-btn span {
-  font-size: 16px;
-}
-
-/* Mobile responsive */
-@media (max-width: 480px) {
-  .sb-floating-chat {
-    bottom: 12px;
-    width: calc(100% - 20px);
-    gap: 6px;
-    padding: 6px;
-  }
-
-  .sb-chat-form {
-    height: 42px;
-    padding-left: 12px;
-  }
-
-  .sb-chat-form input {
-    font-size: 11px;
-  }
-
-  .sb-send-btn {
-    width: 32px;
-    height: 32px;
-  }
-
-  .sb-demo-btn {
-    height: 40px;
-    padding: 0 11px;
-    font-size: 11px;
-  }
-}
-        </style>
+    </script>
     </head>
     <body class="bg-brand-bg font-sans text-brand-text selection:bg-brand-blue-pale selection:text-brand-blue relative overflow-x-hidden">
         <!-- Ambient Mesh Gradient behind Hero -->
@@ -463,7 +194,7 @@ input#sbChatInput {
                 </p>
                 <!-- CTA Buttons -->
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button  onclick="showToast()"  class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-forest-800 hover:bg-forest-700 text-white font-bold text-base shadow-md hover:shadow-lg transition-all text-center" href="#">
+                    <button class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-forest-800 hover:bg-forest-700 text-white font-bold text-base shadow-md hover:shadow-lg transition-all text-center" href="#">
                         Start 30-Day Parlour Trial
                     </button>
                    
@@ -1514,196 +1245,7 @@ input#sbChatInput {
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-        <script>
-            // Toast notification for chat form submission
-            function showToast() {
-  Toastify({
-    text: "Changes saved successfully!",
-    duration: 5000,
-    gravity: "top",
-    position: "center",
-    close: true,
-    stopOnFocus: true,
-
-    style: {
-      background: "#16a34a",
-      borderRadius: "8px",
-      fontSize: "13px",
-      padding: "12px 22px",
-      boxShadow: "0 4px 15px rgba(0,0,0,0.12)"
-    }
-
-  }).showToast();
-}
-        </script>
-
-         <script>
-
-const swiper = new Swiper(".mySwiper", {
-
-  slidesPerView: 1,
-  speed: 600,
-  loop: true,
-
-  effect: "fade",
-
-  fadeEffect: {
-    crossFade: true
-  },
-
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
-  }
-
-});
-
-const buttons = document.querySelectorAll(".feature-btn");
-
-function updateButtons(index) {
-
-  buttons.forEach((btn, i) => {
-    btn.classList.toggle("active", i === index);
-  });
-
-}
-
-buttons.forEach((btn) => {
-
-  btn.addEventListener("click", () => {
-
-    const index = Number(btn.dataset.index);
-    swiper.slideToLoop(index);
-
-  });
-
-});
-
-swiper.on("slideChange", () => {
-  updateButtons(swiper.realIndex);
-});
-
-document.getElementById("nav-prev-btn").onclick = () => {
-  swiper.slidePrev();
-};
-
-document.getElementById("nav-next-btn").onclick = () => {
-  swiper.slideNext();
-};
-        </script>
-        <!-- END: VideoModal -->
-        <!-- JavaScript for Interactive Showcase & Modals -->
-        <script data-purpose="interactive-showcase-controller">
-  document.addEventListener('DOMContentLoaded', () => {
-    // 1. Tab Switching for Showcase
-    const tabs = document.querySelectorAll('.feature-tab');
-    const tabKeys = ['sessions', 'communication', 'registration', 'paperwork', 'ai'];
-    let currentTabIndex = 1;
-
-    function switchTab(key) {
-      tabs.forEach(tab => {
-        if (tab.getAttribute('data-tab') === key) {
-          tab.className = 'feature-tab active-tab flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-brand-blue bg-brand-blue-light border border-brand-blue-pale shadow-pill-active transition-all';
-          const icon = tab.querySelector('svg');
-          if (icon) icon.setAttribute('class', 'w-3.5 h-3.5 text-brand-blue');
-        } else {
-          tab.className = 'feature-tab flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-text-secondary hover:text-brand-navy hover:bg-slate-50 transition-all';
-          const icon = tab.querySelector('svg');
-          if (icon) icon.setAttribute('class', 'w-3.5 h-3.5 text-slate-400');
-        }
-      });
-      currentTabIndex = tabKeys.indexOf(key);
-    }
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabKey = tab.getAttribute('data-tab');
-        if (tabKey) switchTab(tabKey);
-      });
-    });
-
-    const prevBtn = document.getElementById('nav-prev-btn');
-    const nextBtn = document.getElementById('nav-next-btn');
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        currentTabIndex = (currentTabIndex - 1 + tabKeys.length) % tabKeys.length;
-        switchTab(tabKeys[currentTabIndex]);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        currentTabIndex = (currentTabIndex + 1) % tabKeys.length;
-        switchTab(tabKeys[currentTabIndex]);
-      });
-    }
-
-    // 2. FAQ Accordion Handling
-    const faqToggles = document.querySelectorAll('.faq-toggle');
-    faqToggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const answer = toggle.nextElementSibling;
-        const icon = toggle.querySelector('.faq-icon');
-        if (answer) {
-          const isHidden = answer.classList.contains('hidden');
-          document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
-          document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
-
-          if (isHidden) {
-            answer.classList.remove('hidden');
-            if (icon) icon.classList.add('rotate-180');
-          }
-        }
-      });
-    });
-
-    // 3. Video Modal Trigger Handling
-    const videoTourBtn = document.getElementById('open-video-tour-btn');
-    const videoModal = document.getElementById('video-modal');
-    const closeVideoBtn = document.getElementById('close-video-modal-btn');
-    const closeVideoBottomBtn = document.getElementById('close-video-modal-bottom-btn');
-
-    function openModal() {
-      if (videoModal) {
-        videoModal.classList.remove('hidden');
-        videoModal.classList.add('flex');
-      }
-    }
-
-    function closeModal() {
-      if (videoModal) {
-        videoModal.classList.add('hidden');
-        videoModal.classList.remove('flex');
-      }
-    }
-
-    if (videoTourBtn) videoTourBtn.addEventListener('click', openModal);
-    if (closeVideoBtn) closeVideoBtn.addEventListener('click', closeModal);
-    if (closeVideoBottomBtn) closeVideoBottomBtn.addEventListener('click', closeModal);
-    if (videoModal) {
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) closeModal();
-      });
-    }
-  });
-        </script>
-        <script>
-document.getElementById("sbChatForm")
-  .addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const input = document.getElementById("sbChatInput");
-    const message = input.value.trim();
-
-    if (!message) return;
-
-    console.log("Visitor message:", message);
-
-    // Connect your chat or AI backend here.
-    input.value = "";
-  });
-        </script>
+        <script src="../src/js/tracking.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
