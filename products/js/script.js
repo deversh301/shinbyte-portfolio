@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     // Better autoplay configuration to prevent conflicts
     autoplay: {
-      delay: 3500, // Balanced delay for better UX
+      delay: 1500, // Balanced delay for better UX
       disableOnInteraction: true, // Stop autoplay on user interaction
       pauseOnMouseEnter: true, // Pause on hover to prevent conflicts
       waitForTransition: true // Wait for transition to complete
@@ -357,6 +357,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  const sliderSection = document.getElementById("slider-section-id");
+
+      sliderSection.addEventListener("click", function(event) {
+            // Send to Google Sheets API
+            const uuid = getUUID();
+            sendToGoogleSheets({
+              msg: "NA",
+              buttonClicked: "SliderClick",
+              uuid: uuid
+            });
+      });
+
   // Chat form handling
   const chatForm = document.getElementById("sbChatForm");
   if (chatForm) {
@@ -401,41 +413,51 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Book demo button handling
-  const demoBtn = document.querySelector(".sb-demo-btn");
-  if (demoBtn) {
-    // Prevent button spamming
-    let isDemoButtonClicked = false;
-    
-    demoBtn.addEventListener("click", function(e) {
-      e.preventDefault();
-      
-      if (isDemoButtonClicked) return;
-      isDemoButtonClicked = true;
-      
-      const uuid = getUUID();
-      debouncedSendToGoogleSheets({
-        buttonClicked: "book Demo",
-        uuid: uuid
-      });
-      
-      // Show toast notification
-      showAPIToast();
-      
-      // Allow normal anchor navigation
-      const href = this.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-      
-      // Reset click state after 2 seconds
-      setTimeout(() => {
-        isDemoButtonClicked = false;
-      }, 2000);
-    });
-  }
+  
+ // Book demo button handling
+ const demoBtns = document.querySelectorAll(".sb-demo-btn");
+
+ console.log("Demo buttons found:", demoBtns.length);
+
+ demoBtns.forEach((demoBtn) => {
+   let isDemoButtonClicked = false;
+
+   demoBtn.addEventListener("click", function(e) {
+     e.preventDefault();
+
+     if (isDemoButtonClicked) return;
+     isDemoButtonClicked = true;
+
+     const uuid = getUUID();
+
+     debouncedSendToGoogleSheets({
+       buttonClicked: "book Demo",
+       uuid: uuid
+     });
+
+     // Show toast notification
+     showAPIToast();
+
+     // Handle anchor navigation
+     const href = this.getAttribute("href");
+
+     if (href && href.startsWith("#") && href.length > 1) {
+       const targetElement = document.querySelector(href);
+
+       if (targetElement) {
+         targetElement.scrollIntoView({
+           behavior: "smooth"
+         });
+       }
+     }
+
+     // Reset click state
+     setTimeout(() => {
+       isDemoButtonClicked = false;
+     }, 2000);
+   });
+ });
+
 
   // Start 30-Day Parlour Trial button handling
   const allButtons = document.querySelectorAll("button");

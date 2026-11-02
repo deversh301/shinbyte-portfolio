@@ -15,11 +15,40 @@
 
       gtag("config", "G-T8SP3EW1YH");
     </script>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <title>UdderGuard by Shinbyte | Next-Gen Dairy Herd Health &amp; Parlour Intelligence</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>{page_title} | Shinbyte</title>
+        <meta name="description" content="{hero_description}" />
+        <link
+        rel="canonical"
+        href="https://shinbyte.cloud/products/{product_name}.html"
+        />
+        
+        <!-- Open Graph -->
+        <meta property="og:title" content="{page_title} | Shinbyte" />
+        <meta property="og:description" content="{hero_description}" />
+        <meta
+        property="og:url"
+        content="https://shinbyte.cloud/products/{product_name}.html"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+        property="og:image"
+        content="https://shinbyte.cloud/products/src/{product_name}.png"
+        />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{page_title} | Shinbyte" />
+        <meta name="twitter:description" content="{hero_description}" />
+        <meta
+        name="twitter:image"
+        content="https://shinbyte.cloud/products/src/{product_name}.png"
+        />
+        
         <!-- Google Fonts: Plus Jakarta Sans & Inter -->
         <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link rel="icon" type="image/x-icon" href="./src/favicon.ico" />
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
         <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -99,7 +128,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "{product_name}",
-        "url": "https://shinbyte.cloud/products/{product_name}.html",
+        "url":"https://shinbyte.cloud/products/{product_name}.html",
         "description": "{hero_description}",
         "image": "https://shinbyte.cloud/products/src/{product_name}.png",
         "applicationCategory": "BusinessApplication",
@@ -181,21 +210,21 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                 <!-- UK Badge -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-100 text-forest-900 text-xs font-bold uppercase tracking-wider mb-6 border border-forest-200">
                     <span class="w-2 h-2 rounded-full bg-forest-500 animate-pulse"></span>
-                    Built exclusively for UK Commercial Dairy Herds &amp; Parlours
+                    {hero_badge}
                 </div>
                 <!-- Hero Headline -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-forest-900 tracking-tight leading-[1.12]">
-                    Better Visibility.
+                    {hero_headline_part1}
                     <br class="hidden sm:inline">
-                    <span class="text-blue-600 font-serif italic">Healthier Dairy Herds.</span>
+                    <span class="text-blue-600 font-serif italic">{hero_headline_part2_highlighted}</span>
                 </h1>
                 <p class="mt-6 text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto font-normal leading-relaxed">
-                    The unified parlour platform that combines real-time conductivity, somatic cell count (SCC) tracking, antibiotic withholding safety, and one-click Red Tractor veterinary audits.
+                    {hero_description}
                 </p>
                 <!-- CTA Buttons -->
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-forest-800 hover:bg-forest-700 text-white font-bold text-base shadow-md hover:shadow-lg transition-all text-center" href="#">
-                        Start 30-Day Parlour Trial
+                    <button class="w-full sm:w-auto sb-demo-btn px-8 py-3.5 rounded-xl bg-forest-800 hover:bg-forest-700 text-white font-bold text-base shadow-md hover:shadow-lg transition-all text-center" >
+                        {hero_primary_cta}
                     </button>
                    
                 </div>
@@ -205,19 +234,19 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                         <svg class="w-4 h-4 text-forest-700" fill="currentColor" viewBox="0 0 20 20">
                             <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
                         </svg>
-                        No parlour hardware lock-in
+                        {hero_trust_point_1}
                     </div>
                     <div class="flex items-center gap-2">
                         <svg class="w-4 h-4 text-forest-700" fill="currentColor" viewBox="0 0 20 20">
                             <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
                         </svg>
-                        Works offline in steel milking sheds
+                        {hero_trust_point_2}
                     </div>
                     <div class="flex items-center gap-2">
                         <svg class="w-4 h-4 text-forest-700" fill="currentColor" viewBox="0 0 20 20">
                             <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
                         </svg>
-                        Red Tractor &amp; BCMS Sync Ready
+                        {hero_trust_point_3}
                     </div>
                 </div>
             </div>
@@ -227,7 +256,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <!-- Replicates exact design layout, proportions, and interactive tabs from reference image IMAGE_2 -->
         <section class="py-6 sm:py-10 relative overflow-hidden" data-purpose="interactive-product-showcase" id="showcase">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 relative">
-                <div class="flex slider-navigation items-center justify-center gap-1.5 sm:gap-2 mb-8 overflow-x-auto pb-2 custom-scroll px-2 max-w-4xl mx-auto" data-purpose="carousel-tab-bar">
+                <div id="slider-section-id" class="flex slider-navigation items-center justify-center gap-1.5 sm:gap-2 mb-8 overflow-x-auto pb-2 custom-scroll px-2 max-w-4xl mx-auto" data-purpose="carousel-tab-bar">
                     <button aria-label="Previous Feature" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white shadow-pill border border-gray-200/80 flex items-center justify-center text-gray-600 hover:text-forest-800 hover:shadow transition-all shrink-0" id="nav-prev-btn">
                         <svg
                             class="w-4 h-4"
@@ -258,7 +287,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     stroke-width="2"
                                 ></path>
                             </svg>
-                            <span class="">Milking Sessions</span>
+                            <span class="">{product_tab_1}</span>
                         </button>
                         <button data-index="1" class="feature-tab active-tab feature-btn flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-600 bg-white border border-blue-200 shadow-pill-active transition-all" data-tab="communication">
                             <svg
@@ -274,7 +303,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     stroke-width="2"
                                 ></path>
                             </svg>
-                            <span class="">Parlour Alerts</span>
+                            <span class="">{product_tab_2}</span>
                         </button>
                         <button data-index="2" class="feature-tab feature-btn flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-600 hover:text-gray-900 transition-all" data-tab="registration">
                             <svg
@@ -290,7 +319,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     stroke-width="2"
                                 ></path>
                             </svg>
-                            <span class="">Cow Identification</span>
+                            <span class="">{product_tab_3}</span>
                         </button>
                         <button data-index="3" class="feature-tab feature-btn flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-600 hover:text-gray-900 transition-all" data-tab="paperwork">
                             <svg
@@ -306,7 +335,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     stroke-width="2"
                                 ></path>
                             </svg>
-                            <span class="">Red Tractor Logs</span>
+                            <span class="">{product_tab_4}</span>
                         </button>
                         <button data-index="4" class="feature-tab feature-btn flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-600 hover:text-gray-900 transition-all" data-tab="ai">
                             <svg
@@ -322,7 +351,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     stroke-width="2"
                                 ></path>
                             </svg>
-                            <span class="">AI Predict</span>
+                            <span class="">{product_tab_5}</span>
                         </button>
                     </div>
                     <button aria-label="Next Feature" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white shadow-pill border border-gray-200/80 flex items-center justify-center text-gray-600 hover:text-forest-800 hover:shadow transition-all shrink-0" id="nav-next-btn">
@@ -524,7 +553,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                 </div>
                                 <div class="h-4 w-[1px] bg-gray-300 mx-1"></div>
                                 <div class="flex items-center gap-1.5 text-xs font-bold text-gray-800 bg-white px-2.5 py-1 rounded-lg border border-gray-200 shadow-xs">
-                                    <span class="">UdderGuard Parlour OS</span>
+                                    <span class="">{dashboard_software_name}</span>
                                     <svg
                                         class="w-3.5 h-3.5 text-gray-500"
                                         fill="none"
@@ -540,28 +569,28 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="hidden md:inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live Parlour Sync</span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> {dashboard_status_badge}</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="hidden sm:inline-flex text-xs font-semibold text-gray-500">Oakridge Farms • 1,248 Herd</span>
+                                <span class="hidden sm:inline-flex text-xs font-semibold text-gray-500">{dashboard_account_info}</span>
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse hidden sm:inline-block"></span>
                             </div>
                         </div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                  <img src="../products/src/slider2.png">
+                                <img src="../products/src/{product_name}/image1.png">
                             </div>
                             <div class="swiper-slide">
-                                <img src="../products/src/slider1.png">
+                                <img src="../products/src/{product_name}/image2.png">
                             </div>
                             <div class="swiper-slide">
-                                <img src="../products/src/slider2.png">
+                                <img src="../products/src/{product_name}/image3.png">
                             </div>
                             <div class="swiper-slide">
-                                <img src="../products/src/slider1.png">
+                                <img src="../products/src/{product_name}/image4.png">
                             </div>
                             <div class="swiper-slide">
-                                  <img src="../products/src/slider2.png">
+                                  <img src="../products/src/{product_name}/image5.png">
                             </div>
                         </div>
                     </div>
@@ -703,9 +732,9 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <section class="py-16 md:py-20 bg-brand-bg-warm border-b border-brand-border-warm" data-purpose="problem-vs-solution">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12">
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2 block font-heading">The Milking Parlour Dilemma</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2 block font-heading">{problem_solution_eyebrow}</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight font-heading leading-tight">
-                        Dairy farms don't fail from lack of hard work. They lose margin in scattered pit notes.
+                        {problem_solution_heading}
                     </h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
@@ -713,67 +742,67 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                     <div class="p-8 sm:p-10 rounded-2xl bg-white border border-rose-200/80 shadow-subtle relative overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-6">
-                                <span>✕ The Traditional Whiteboard Way</span>
+                                <span>{problem_card_1_badge}</span>
                             </div>
-                            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">Damp Whiteboards &amp; Lost Clipped Paper</h3>
+                            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">{problem_card_1_heading}</h3>
                             <p class="text-sm text-brand-text-secondary mb-6 leading-relaxed">
-                                High-pressure milking sessions lead to hasty notes, smudged markers, and chaotic phone calls to herd veterinarians.
+                                {problem_card_1_description}
                             </p>
                             <ul class="space-y-4 text-sm text-brand-text-secondary">
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
                                     <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✕</span>
                                     <span>
-                                        <strong class="text-brand-navy">Missed Withholding Deadlines:</strong>
-                                        When wet sponge or parlour hose erases a cow marker, antibiotic milk enters the bulk tank, resulting in tanker rejection charges up to £15,000.
+                                        <strong class="text-brand-navy">{problem_card_1_point_1_title}</strong>
+                                        {problem_card_1_point_1_description}
                                     </span>
                                 </li>
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
                                     <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✕</span>
                                     <span>
-                                        <strong class="text-brand-navy">Late Detection of Subclinical Mastitis:</strong>
-                                        Visible clots in the filter sock only appear when yield loss and cell damage have already occurred across the quarter.
+                                        <strong class="text-brand-navy">{problem_card_1_point_2_title}</strong>
+                                        {problem_card_1_point_2_description}
                                     </span>
                                 </li>
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
                                     <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✕</span>
                                     <span>
-                                        <strong class="text-brand-navy">Frantic Red Tractor Inspections:</strong>
-                                        3 stressful days spent locating paper medicine purchase records, empty bottle batch numbers, and cow movement cards.
+                                        <strong class="text-brand-navy">{problem_card_1_point_3_title}</strong>
+                                        {problem_card_1_point_3_description}
                                     </span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <!-- The UdderGuard Way -->
+                    <!-- The Solution Way -->
                     <div class="p-8 sm:p-10 rounded-2xl bg-white border-2 border-brand-blue shadow-dashboard relative overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue text-white text-xs font-bold mb-6 shadow-sm">
-                                <span>✓ The UdderGuard Way by Shinbyte</span>
+                                <span>{solution_card_2_badge}</span>
                             </div>
-                            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">Automated Herd Health &amp; Parlour Safeguards</h3>
+                            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">{solution_card_2_heading}</h3>
                             <p class="text-sm text-brand-text-secondary mb-6 leading-relaxed">
-                                Integrated directly with your rotary, herringbone, or robotic setup, providing milker alerts in real time.
+                                {solution_card_2_description}
                             </p>
                             <ul class="space-y-4 text-sm text-brand-text-secondary">
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-blue-50/60 border border-brand-blue-pale">
                                     <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
                                     <span>
-                                        <strong class="text-brand-navy">Fail-Safe Auto-Drafting &amp; Locks:</strong>
-                                        Automatic milk valve diversion and pit alarms that cannot be cleared without authorised veterinary credentials.
+                                        <strong class="text-brand-navy">{solution_card_2_point_1_title}</strong>
+                                        {solution_card_2_point_1_description}
                                     </span>
                                 </li>
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-blue-50/60 border border-brand-blue-pale">
                                     <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
                                     <span>
-                                        <strong class="text-brand-navy">Quarter-Level Conductivity Profiling:</strong>
-                                        36-hour predictive warning before clinical signs appear, enabling non-antibiotic mint massage intervention.
+                                        <strong class="text-brand-navy">{solution_card_2_point_2_title}</strong>
+                                        {solution_card_2_point_2_description}
                                     </span>
                                 </li>
                                 <li class="flex items-start gap-3 p-3.5 rounded-xl bg-blue-50/60 border border-brand-blue-pale">
                                     <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
                                     <span>
-                                        <strong class="text-brand-navy">One-Click Red Tractor &amp; BCMS CTS Sync:</strong>
-                                        Fully formatted electronic medicine hub (eMB-Cattle) reports generated in under 60 seconds.
+                                        <strong class="text-brand-navy">{solution_card_2_point_3_title}</strong>
+                                        {solution_card_2_point_3_description}
                                     </span>
                                 </li>
                             </ul>
@@ -789,13 +818,13 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                 <div class="text-center max-w-2xl mx-auto mb-12">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-border shadow-subtle text-brand-blue text-xs font-semibold uppercase tracking-wider mb-3">
                         <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
-                        <span>Enterprise Parlour Intelligence</span>
+                        <span>{features_eyebrow}</span>
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight font-heading leading-tight">
-                        Powerful Features. Smarter Dairy Operations.
+                        {features_heading}
                     </h2>
                     <p class="mt-3 text-base text-brand-text-secondary leading-relaxed">
-                        Everything you need to monitor parlour performance, manage compliance and make better decisions across every milking shift.
+                        {features_description}
                     </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="features">
@@ -817,14 +846,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-brand-blue-light text-brand-blue border-brand-blue-pale">
-                                    REAL-TIME MONITORING
+                                    {feature_1_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                Real-Time Parlour Telemetry &amp; SCC Alerts
+                                {feature_1_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Monitor parlour performance, milk flow rates and somatic cell count trends with real-time alerts.
+                                {feature_1_description}
                             </p>
                         </div>
                     </div>
@@ -847,14 +876,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-slate-50 text-slate-600 border-slate-200">
-                                    FAIL-SAFE PROTECTION
+                                    {feature_2_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                Fail-Safe Withholding Locks &amp; Auto-Drafting
+                                {feature_2_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Automatically enforce milk withholding periods and prevent treated cows from entering the milk supply.
+                                {feature_2_description}
                             </p>
                         </div>
                     </div>
@@ -885,14 +914,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-slate-50 text-slate-600 border-slate-200">
-                                    COMPLIANCE READY
+                                    {feature_3_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                1-Click Red Tractor &amp; BCMS Medicine Hub
+                                {feature_3_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Centralise medicine records and simplify compliance documentation and audit preparation.
+                                {feature_3_description}
                             </p>
                         </div>
                     </div>
@@ -930,14 +959,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-slate-50 text-slate-600 border-slate-200">
-                                    OFFLINE CAPABLE
+                                    {feature_4_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                Offline Pit Cache &amp; Glove-Friendly Touch
+                                {feature_4_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Keep essential parlour workflows accessible offline with a simple interface designed for use while milking.
+                                {feature_4_description}
                             </p>
                         </div>
                     </div>
@@ -960,14 +989,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-slate-50 text-slate-600 border-slate-200">
-                                    LACTATION ANALYTICS
+                                    {feature_5_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                Individual Cow Matrix &amp; Historical Trends
+                                {feature_5_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Review individual cow performance, historical data and lactation trends to support better herd decisions.
+                                {feature_5_description}
                             </p>
                         </div>
                     </div>
@@ -991,14 +1020,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                     </svg>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border bg-brand-blue-light text-brand-blue border-brand-blue-pale">
-                                    VET CONNECTIVITY
+                                    {feature_6_category}
                                 </span>
                             </div>
                             <h3 class="text-lg font-semibold text-slate-900 font-heading mt-5">
-                                Vet Remote Advisory &amp; Prescription Portal
+                                {feature_6_title}
                             </h3>
                             <p class="text-sm text-brand-text-secondary leading-relaxed mt-2">
-                                Connect with veterinary professionals, access clinical information and manage remote prescription workflows.
+                                {feature_6_description}
                             </p>
                         </div>
                     </div>
@@ -1010,14 +1039,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <section class="py-16 md:py-20 bg-brand-bg-warm border-b border-brand-border-warm" data-purpose="faq-section" id="faq-accordion">
             <div class="max-w-4xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-blue font-heading block mb-2">Common Parlour Questions</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight font-heading">Frequently Asked Questions</h2>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-blue font-heading block mb-2">{faq_eyebrow}</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight font-heading">{faq_heading}</h2>
                 </div>
                 <div class="space-y-4">
                     <!-- Q1 -->
                     <div class="bg-white rounded-2xl border border-brand-border shadow-subtle overflow-hidden transition-all">
                         <button class="faq-toggle w-full p-5 text-left font-semibold text-sm sm:text-base text-brand-navy flex justify-between items-center focus:outline-none font-heading hover:bg-slate-50">
-                            <span>Will this work in my concrete &amp; steel milking pit with zero 4G reception?</span>
+                            <span>{faq_1_question}</span>
                             <svg
                                 class="faq-icon w-5 h-5 text-brand-blue transition-transform"
                                 fill="none"
@@ -1033,13 +1062,13 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                             </svg>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-sm text-brand-text-secondary hidden leading-relaxed">
-                            Yes, 100%. We understand UK dairy farm infrastructure. UdderGuard's parlour tablet app is built offline-first. It caches all cow data and conductivity records locally on the pit device and quietly synchronizes with the Shinbyte Cloud whenever a Wi-Fi or cellular signal is re-established in the farm office.
+                            {faq_1_answer}
                         </div>
                     </div>
                     <!-- Q2 -->
                     <div class="bg-white rounded-2xl border border-brand-border shadow-subtle overflow-hidden transition-all">
                         <button class="faq-toggle w-full p-5 text-left font-semibold text-sm sm:text-base text-brand-navy flex justify-between items-center focus:outline-none font-heading hover:bg-slate-50">
-                            <span>Do I need to replace my existing parlour milking clusters or meters?</span>
+                            <span>{faq_2_question}</span>
                             <svg
                                 class="faq-icon w-5 h-5 text-brand-blue transition-transform"
                                 fill="none"
@@ -1055,13 +1084,13 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                             </svg>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-sm text-brand-text-secondary hidden leading-relaxed">
-                            No. UdderGuard interfaces with existing conductivity sensors and electronic meters from DeLaval, Fullwood, BouMatic, GEA, and Lely, or operates as a standalone touch-entry health tracker for manual herringbones. You do not need to replace your hardware.
+                            {faq_2_answer}
                         </div>
                     </div>
                     <!-- Q3 -->
                     <div class="bg-white rounded-2xl border border-brand-border shadow-subtle overflow-hidden transition-all">
                         <button class="faq-toggle w-full p-5 text-left font-semibold text-sm sm:text-base text-brand-navy flex justify-between items-center focus:outline-none font-heading hover:bg-slate-50">
-                            <span>Is the data acceptable during an official Red Tractor inspection?</span>
+                            <span>{faq_3_question}</span>
                             <svg
                                 class="faq-icon w-5 h-5 text-brand-blue transition-transform"
                                 fill="none"
@@ -1077,13 +1106,13 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                             </svg>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-sm text-brand-text-secondary hidden leading-relaxed">
-                            Yes. Our medicine and treatment logs adhere strictly to Red Tractor Dairy Standard AM.1 and Veterinary Medicines Directorate (VMD) requirements, logging batch numbers, medicine authorization codes, administration routes, milker initials, and withdrawal expiration dates.
+                            {faq_3_answer}
                         </div>
                     </div>
                     <!-- Q4 -->
                     <div class="bg-white rounded-2xl border border-brand-border shadow-subtle overflow-hidden transition-all">
                         <button class="faq-toggle w-full p-5 text-left font-semibold text-sm sm:text-base text-brand-navy flex justify-between items-center focus:outline-none font-heading hover:bg-slate-50">
-                            <span>Can my dairy veterinary surgeon log in directly?</span>
+                            <span>{faq_4_question}</span>
                             <svg
                                 class="faq-icon w-5 h-5 text-brand-blue transition-transform"
                                 fill="none"
@@ -1099,7 +1128,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                             </svg>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-sm text-brand-text-secondary hidden leading-relaxed">
-                            Yes. Every UdderGuard subscription includes free dedicated Vet Portal access. Your herd vet can view recurring mastitis cases, write treatment protocol templates, and approve antibiotic clearances without needing their own paid seat.
+                            {faq_4_answer}
                         </div>
                     </div>
                 </div>
@@ -1111,14 +1140,14 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                 <div class="text-center max-w-3xl mx-auto">
                     <!-- <span class="text-xs font-bold uppercase tracking-widest text-blue-300 mb-2.5 block">Spend Less Time</span> -->
                     <h2 class="text-3xl sm:text-4xl lg:text-[2rem] font-display font-extrabold text-white tracking-tight leading-tight mb-6">
-                        Spend Less Time Chasing Records
+                        {final_cta_heading}
                     </h2>
                     <p class="text-lg text-slate-300 leading-relaxed mb-10">
-                        We're building a simple SaaS platform for UK dairy farmers. Tell us how you manage mastitis and cow health to help shape the solution for your herd.
+                        {final_cta_description}
                     </p>
                     <div class="flex flex-wrap items-center justify-center gap-4">
-                        <a class="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-100 rounded-xl shadow-lg hover:shadow-xl transition-all group" href="/contact.html?product=udder-guard">
-                            <span class="">Request a Demo</span>
+                        <a class="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-100 rounded-xl shadow-lg hover:shadow-xl transition-all group" href="{demo_cta_url}">
+                            <span class="">{final_cta_button}</span>
                             <svg
                                 class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
                                 fill="none"
@@ -1161,7 +1190,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                         stroke-width="2"
                                     ></path>
                                 </svg>
-                                <span class="">No setup fees</span>
+                                <span class="">{benefit_1}</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <svg
@@ -1177,7 +1206,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                         stroke-width="2"
                                     ></path>
                                 </svg>
-                                <span class="">60‑day free trial</span>
+                                <span class="">{benefit_2}</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <svg
@@ -1193,7 +1222,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                         stroke-width="2"
                                     ></path>
                                 </svg>
-                                <span class="">Unlimited users</span>
+                                <span class="">{benefit_3}</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <svg
@@ -1209,7 +1238,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                                         stroke-width="2"
                                     ></path>
                                 </svg>
-                                <span class="">Dedicated support</span>
+                                <span class="">{benefit_4}</span>
                             </div>
                         </div>
                     </div>
@@ -1223,7 +1252,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                 <input
                     type="text"
                     id="sbChatInput"
-                    placeholder="Ask anything about our product..."
+                    placeholder="{floating_chat_placeholder}"
                     autocomplete="off"
                 >
                 <button type="submit" class="sb-send-btn" aria-label="Send">
@@ -1239,7 +1268,7 @@ href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
                 </button>
             </form>
             <a href="#contact" class="sb-demo-btn">
-                Book a demo
+                {floating_demo_button}
                 <span>→</span>
             </a>
         </div>
